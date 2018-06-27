@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Make a plea for an offence
+        </h1>
+
+        <p class="govuk-body-l">Use this service to plead guilty or not guilty online.</p>
+        
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Before you start</h2>
+        
+        <p class="govuk-!-margin-bottom-3">To use this service you need:</p>
+        
+        <details class="govuk-details" open="open">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                    For all pleas
+                </span>
+            </summary>
+            <div class="govuk-details__text govuk-!-margin-top-1 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>you must be the person charged with the offence</li>
+                    <li>the Single Justice Procedure notice sent to you</li>
+                    <li>your National Insurance number</li>
+                    <li>details of your income, benefits and outgoings</li>
+                    <li>your employers' details</li>
+                    <li>your email address</li>
+                </ul>
+            </div>
+        </details>
+        
+        <details class="govuk-details" open="open">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                    Additional information needed for not guilty pleas
+                </span>
+            </summary>
+            <div class="govuk-details__text govuk-!-margin-top-1 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>your witness' name, address, age and date of birth</li>
+                    <li>any dates you can't attend court</li>
+                </ul>
+            </div>
+        </details>
+        
+        <a href="/map/find-your-case.html" role="button" class="govuk-button govuk-button--start">Start now</a>
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

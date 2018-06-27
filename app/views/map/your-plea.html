@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Your plea
+        </h1>
+
+        <div class="govuk-inset-text">
+            <p>This is your chance to respond. Please note:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>you're being charged with a criminal offence and you may wish to take legal advice before making your plea</li>
+                <li>all evidence is in the notice sent to you</li>
+                <li>if you plead guilty, we will reduce your fine by up to 33%</li>
+                <li>If you are convicted after trial your costs may be higher than if you had pleaded guilty</li>
+            </ul>        
+        </div>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <h2 class="govuk-heading-l">
+            Passenger failing to produce a ticket
+        </h2>
+
+        <details class="govuk-details" open>
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    Help with nationality
+                </span>
+            </summary>
+                <div class="govuk-details__text">
+                    On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.
+                </div>
+        </details>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <h2 class="govuk-heading-l">
+            Enter your plea
+        </h2>
+        
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h1 class="govuk-fieldset__heading">
+                        How do you pleasd?
+                    </h1>
+                </legend>
+                
+                <div class="govuk-radios" data-module="radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="how-do-you-plead-1" name="how-do-you-plead" type="radio" value="Guilty" data-aria-controls="conditional-how-do-you-plead-1">
+                        <label class="govuk-label govuk-radios__label" for="how-do-you-plead-1">
+                            Guilty
+                        </label>
+                    </div>
+                    
+                                <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-1">
+                                    <div class="govuk-form-group">
+                                        <p>You're declaring you comitted the offence.</p>
+                                    </div>
+                                </div>
+                    
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="how-do-you-plead-2" name="how-do-you-plead" type="radio" value="Not guilty" data-aria-controls="conditional-how-do-you-plead-2">
+                        <label class="govuk-label govuk-radios__label" for="how-do-you-plead-2">
+                            Not guilty
+                        </label>
+                    </div>
+                    
+                                <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-2">
+                                    <div class="govuk-form-group">
+                                        <p>You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                                    </div>
+                                </div>
+                                        
+                </div>
+            </fieldset>
+        </div>
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+
+                <div>
+                    <button type="submit" class="govuk-button govuk-!-padding-bottom-0">Continue</button><br>
+                    <a href="#" class="govuk-!-padding-top-0">Back</a>
+                </div>
+
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

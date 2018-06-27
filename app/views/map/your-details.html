@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Your details
+        </h1>
+
+        <h2 class="govuk-heading-m">Check your name and address</h2>
+        
+        <div class="govuk-inset-text">
+            <span id="">Sam Smith<br></span>
+            <span id="">38A Baker Street<br></span>
+            <span id="">London<br></span>
+            <span id="">W1 7SX<br></span>
+        </div>
+
+        <form action="" method="post">
+
+            <div class="govuk-form-group">
+
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                            Are these details correct?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="are-these-details-correct-1" name="are-these-details-correct" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="are-these-details-correct-1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="are-these-details-correct-2" name="are-these-details-correct" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="are-these-details-correct-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="govuk-button govuk-!-margin-top-3">Continue</button> 
+
+            </div>                
+                
+        </form>
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

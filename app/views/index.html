@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Make a plea
+            <span class="govuk-caption-m">Also know as 'online plea' this design demo uses prototype kit {{releaseVersion}}</span>
+        </h1>{{releaseVersion | log }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Case or unique reference number</h2>
+        <p class="govuk-!-margin-bottom-3">One of the following must be used:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Transport for London: <span class="govuk-!-font-weight-bold">TFL</span>, <span class="govuk-!-font-weight-bold">TfL</span> or <span class="govuk-!-font-weight-bold">tfl</span></li>
+            <li>TV Licensing: <span class="govuk-!-font-weight-bold">TVL</span>, <span class="govuk-!-font-weight-bold">tvl</span> or <span class="govuk-!-font-weight-bold">123123123C</span></li>
+            <li>Driver and Vehicle Licensing Agency: <span class="govuk-!-font-weight-bold">DVLA</span> or <span class="govuk-!-font-weight-bold">dvla</span></li>
+        </ul>
+        
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Postcodes</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>any postcode can be used, however, for continuity use: <span class="govuk-!-font-weight-bold">W1 7SX</span> or <span class="govuk-!-font-weight-bold">W17SX</span></li>
+            <li><span class="govuk-!-font-weight-bold">AN9 9YZ</span> or <span class="govuk-!-font-weight-bold">AN99YZ</span> can also be used</li>
+            <li>to see the Welsh language questions in the not guilty flow: <span class="govuk-!-font-weight-bold">LL48 6ER</span> or <span class="govuk-!-font-weight-bold">LL486ER</span></li>
+        </ul>
+        
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Timeout</h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>an overlay will be displayed after 60 seconds of inactivity</li>
+            <li>session will timeout after 90 seconds</li>
+        </ul>
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
