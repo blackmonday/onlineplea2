@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Your employment
+        </h1>
+
+        <form action="" method="post">
+
+            <div class="govuk-form-group">
+
+                <div class="">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employee-reference">
+                        Employee reference (optional)
+                    </label>
+                    <span id="employee-reference-hint" class="govuk-hint">
+                        Also know as employee number or payroll reference - this should be on your payslip
+                    </span>
+                    <input class="govuk-input govuk-!-width-one-third" id="employee-reference" name="employee-reference" type="text" aria-describedby="employee-reference-hint">
+                </div>                
+                
+                <div class=" govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employers-name">
+                        Employer's name
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employers-name" name="employers-name" type="text" aria-describedby="employers-name-hint">
+                </div>
+                
+                <h2 class="govuk-heading-m govuk-!-margin-top-9">
+                    Employer's Address
+                </h2>
+                
+                <details class="govuk-details" open>
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Which address should I include?
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Enter the head office or where your payroll is managed
+                    </div>
+                </details>                
+                
+                <div class="govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-line-1">
+                        Address
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="employer-address-line-1" type="text" aria-describedby="employer-address-line-1-hint">
+                    <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-top-2" id="employer-address-line-2" name="employer-address-line-2" type="text" aria-describedby="employer-address-line-2-hint">
+                </div>
+                
+                <div class="govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-town-or-city">
+                        Town or city
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-town-or-city" name="employer-address-town-or-city" type="text" aria-describedby="employer-address-town-or-city-hint">
+                </div>
+                
+                <div class="govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-county">
+                        County (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-county" name="employer-address-county" type="text" aria-describedby="employer-address-county-hint">
+                </div>
+                
+                <div class="govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-postcode">
+                        Postcode
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-quarter" id="employer-address-postcode" name="employer-address-postcode" type="text" aria-describedby="employer-address-postcode-hint">
+                </div>
+                
+                <div class="govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employer-telephone">
+                        Employer telephone (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="employer-telephone" name="employer-telephone" type="text" aria-describedby="employer-telephone-hint">
+                </div>
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+
+            </div>                
+                
+        </form>
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

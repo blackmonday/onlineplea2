@@ -64,3 +64,79 @@ $govuk-global-styles: true;
     border-top: 10px solid #005ea5;
     padding-top:10px;
 }
+
+/* IMAGE WIDTH */
+img {
+    width:100%;
+}
+
+// Adding £ to form inputs
+.input-icon {
+    position: relative;
+}
+
+.input-icon > i {
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 54%;
+    pointer-events: none;
+    width: 30px;
+    text-align: center;
+    font-style: normal;
+}
+
+.input-icon > input {
+    padding-left: 25px;
+    padding-right: 0;
+}
+
+/* NOTIFICATION BANNERS PATTERN */
+.notification-banner-turqoise {
+    background-color: #28A197;
+}
+.notification-banner-green {
+    background-color: #006435;
+}
+.notification-banner-orange {
+    background-color: #E46E2A;
+}
+.notification-banner-red {
+    background-color: #B10E1E;
+}
+.notification-banner-grey {
+    background-color: #6F777B;
+}
+.notification-banner-nest {
+    display: table;
+}
+.notification-banner {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    min-height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+}
+.notification-banner div {
+}
+.notification-banner-icon {
+    height: 30px;
+    float: left;
+    width: 20px;
+}
+.notification-banner-text {
+    vertical-align: middle;
+    margin-left: 45px;
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.notification-banner-text-no-icon {
+    margin-left: 0px;
+}
+.notification-banner-text a, .notification-banner-text a:hover, .notification-banner-text a:active {
+    color: #ffffff;
+}

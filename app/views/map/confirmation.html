@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-0">
+    <div class="govuk-grid-column-full">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h2 class="govuk-heading-l govuk-!-margin-top-0" style="color: #ffffff">
+                Your plea has been submitted
+            </h2>
+            <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-0" style="color: #ffffff">
+                Your case reference is
+            </p>
+            <p class="govuk-!-font-weight-bold govuk-!-margin-top-1" style="color: #ffffff">
+                <span style="font-size:24px">{{data['URN']}}</span>
+            </p>
+            <p class="govuk-!-font-weight-bold govuk-!-margin-top-3 govuk-!-margin-bottom-0" style="color: #ffffff">
+                If you need to contact us, you will need to quote this case reference
+            </p>
+        </div>
+        
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">
+        
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">What happens next?</h2>
+        
+            <p>We will email you confirmation that your plea has been submitted.</p>
+
+            <p>Depending on how you pleaded, we will:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>send you a letter with the magistrate's decision usually within 28 days</li>
+                <li>tell you how much and when to pay if you need to pay a financial penalty</li>
+                <li>tell you if or when you need to attend court</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">For help with this online service or the court process</h2>
+        
+            <p>Contact quoting the case reference.</p>
+
+            <p>
+                <span class="govuk-!-font-weight-bold">By telephone</span><br>
+                0300 303 0656<br>
+                Monday to Friday, 9am to 5pm<br>
+                <a href="#">Find out avbout call charges</a>
+            </p>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Finish</button>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    
+</div>
+
+{% endblock %}

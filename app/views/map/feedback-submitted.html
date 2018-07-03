@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        
+        
+        
+        
+        <!-- NOTIFICATION BANNER PATTERN - TURQOISE + TICK ICON -->
+        <div class="notification-banner-nest notification-banner-turqoise">
+            <div class="notification-banner">
+                <div class="notification-banner-icon">
+                    <object data="/public/images/icons/tick-icon-white.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="notification-banner-text">Accepted case management information</div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Close</button>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        <!--
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+        -->
+    
+    </div>
+    
+</div>
+
+{% endblock %}

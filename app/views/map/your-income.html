@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Your income
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <div>
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                What is the frequency of your income?
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-1" name="income-frequency" type="radio" value="Weekly">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-1">
+                                    Weekly
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-2" name="income-frequency" type="radio" value="Fortnightly">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-2">
+                                    Fortnightly
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-3" name="income-frequency" type="radio" value="Monthly">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-3">
+                                    Monthly
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-4" name="income-frequency" type="radio" value="Yearly">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-4">
+                                    Yearly
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+                
+                <div class="">
+                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="average-income">
+                        Your average income (after tax)
+                    </label>
+                    <span id="average-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                        Include earnings, pension, benefits and any other income
+                    </span>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="average-income" name="average-income" type="number" min="0.01" step="0.01" aria-describedby="average-income-hint">
+                    </div>                
+
+                    
+                </div>                
+                
+                <div class="">
+                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="nin">
+                        National Insurance number (optional)
+                    </label>
+                    <span id="nin-hint" class="govuk-hint govuk-!-margin-bottom-1">
+                        It's on your National Insurance card, benefit letter, payslip or P60 - for example, 'AB 12 34 56 C'
+                    </span>
+                    <input class="govuk-input govuk-!-width-one-third" id="nin" name="nin" type="text" aria-describedby="nin-hint">
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                Your employment status
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="employment-status-1" name="employment-status" type="radio" value="Employed (full or part-time)">
+                                <label class="govuk-label govuk-radios__label" for="employment-status-1">
+                                    Employed (full or part-time)
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="employment-status-2" name="employment-status" type="radio" value="Self-employed">
+                                <label class="govuk-label govuk-radios__label" for="employment-status-2">
+                                    Self-employed
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="employment-status-3" name="employment-status" type="radio" value="Unemployed">
+                                <label class="govuk-label govuk-radios__label" for="employment-status-3">
+                                    Unemployed
+                                </label>
+                            </div>                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="employment-status-4" name="employment-status" type="radio" value="Other (for example, retired, student)" data-aria-controls="employment-status-4-conditional">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-4">
+                                    Other (for example, retired, student)
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional" id="employment-status-4-conditional">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="other-employment-status-details">
+                                        Other income details
+                                    </label>
+                                    <textarea class="govuk-textarea" id="other-employment-status-details" name="other-employment-status-details" rows="5" aria-describedby="other-employment-status-details-hint"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                Are you claiming any benefits?
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="claiming-benefits-1" name="claiming-benefits" type="radio" value="Yes" data-aria-controls="claiming-benefits-1-conditional">
+                                <label class="govuk-label govuk-radios__label" for="claiming-benefits-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional" id="claiming-benefits-1-conditional">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="claiming-benefits-details">
+                                        Which benefits are you claiming?
+                                    </label>
+                                    <textarea class="govuk-textarea" id="claiming-benefits-details" name="claiming-benefits-details" rows="5" aria-describedby="claiming-benefits-details-hint"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="claiming-benefits-2" name="claiming-benefits" type="radio" value="No">
+                                <label class="govuk-label govuk-radios__label" for="claiming-benefits-2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

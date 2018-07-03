@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Your monthly outgoings
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <h2 class="govuk-heading-m">What are your monthly bills for the following?</h2>
+                
+                <div class="">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="accomodation">
+                        Accommodation
+                    </label>
+                    <span id="accomodation-hint" class="govuk-hint">
+                        For example, rent, mortgage or lodgings
+                    </span>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="accomodation" name="accomodation" type="number" min="0.01" step="0.01" aria-describedby="accomodation-hint">
+                    </div>                
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="council-tax">
+                        Council tax
+                    </label>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="council-tax" name="council-tax" type="number" min="0.01" step="0.01" aria-describedby="council-tax-hint">
+                    </div>                
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="household-bills">
+                        Household bills
+                    </label>
+                    <span id="household-bills-hint" class="govuk-hint">
+                        For example, gas, electricity, water, insurance
+                    </span>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="household-bills" name="household-bills" type="number" min="0.01" step="0.01" aria-describedby="household-bills-hint">
+                    </div>                
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="travel-expenses">
+                        Travel expenses
+                    </label>
+                    <span id="travel-expenses-hint" class="govuk-hint">
+                        For example, gas, electricity, water, insurance
+                    </span>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="travel-expenses" name="travel-expenses" type="number" min="0.01" step="0.01" aria-describedby="travel-expenses-hint">
+                    </div>                
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="child-maintenance">
+                        Child maintenance
+                    </label>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="child-maintenance" name="child-maintenance" type="number" min="0.01" step="0.01" aria-describedby="child-maintenance-hint">
+                    </div>                
+                </div>                
+                
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                Any other significant expenses not listed?
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="other-expenses-1" name="other-expenses" type="radio" value="Yes" data-aria-controls="other-expenses-1-conditional">
+                                <label class="govuk-label govuk-radios__label" for="other-expenses-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional" id="other-expenses-1-conditional">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="other-expenses-details">
+                                        List any other outgoings or information you believe the court should know about
+                                    </label>
+                                    <textarea class="govuk-textarea" id="other-expenses-details" name="other-expenses-details" rows="5" aria-describedby="other-expenses-details-hint"></textarea>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <label class="govuk-label govuk-!-font-weight-bold" for="other-expenses-details-amount">
+                                        Amount of other significant expenses
+                                    </label>
+                                    <div class="input-icon">
+                                        <i class="govuk-body">£</i>
+                                        <input class="govuk-input govuk-!-width-one-third" id="other-expenses-details-amount" name="other-expenses-details-amount" type="number" min="0.01" step="0.01" aria-describedby="other-expenses-details-amount-hint">
+                                    </div>                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="other-expenses-2" name="other-expenses" type="radio" value="No">
+                                <label class="govuk-label govuk-radios__label" for="other-expenses-2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

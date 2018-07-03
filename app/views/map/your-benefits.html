@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Your benefits
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+          
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                If you need to pay a penalty, would you like us to deduct it from your benefits?
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="deduct-from-benefits-1" name="deduct-from-benefits" type="radio" value="Yes">
+                                <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-1">
+                                    Yes
+                                </label>
+                            </div>
+                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="deduct-from-benefits-2" name="deduct-from-benefits" type="radio" value="No" data-aria-controls="deduct-from-benefits-2-conditional">
+                                <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-2">
+                                    No
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional" id="deduct-from-benefits-2-conditional">
+                                <p>Please note we can deduct without your agreement if:</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>you've failed to pay a penalty in the past</li>
+                                    <li>the court orders you to pay compensation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

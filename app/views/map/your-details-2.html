@@ -9,20 +9,87 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">
-            Your details
-        </h1>
         
-        <h2 class="govuk-heading-m">Changes to name</h2>
-
-        <p class="govuk-body-l">Coming soon...</p>        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Update your details
+        </h1>
         
         <form action="" method="post">
             <div class="govuk-form-group">
+                
+                <div>
+                    <h2 class="govuk-heading-m">Changes to name</h2>
 
-                <button type="submit" class="govuk-button">Continue</button> 
+                    <div>
+                        <label class="govuk-label govuk-!-font-weight-bold" for="first-name">
+                            First name
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="first-name" name="first-name" type="text" aria-describedby="first-name-hint">
+                    </div>
+
+                    <div class="govuk-!-margin-top-3">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="last-name">
+                            Last name
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="last-name" name="last-name" type="text" aria-describedby="last-name-hint">
+                    </div>
+                </div>
+                
+                <div class="govuk-!-margin-top-6">
+                    <h2 class="govuk-heading-m">Changes to address</h2>
+
+                    <div>
+                        <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
+                            Address
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="address-line-1" name="address-line-1" type="text" aria-describedby="address-line-1-hint">
+                    </div>
+
+                    <div class="govuk-!-margin-top-2">
+                        <input class="govuk-input govuk-!-width-one-half" id="address-line-2" name="address-line-2" type="text" aria-describedby="address-line-2-hint">
+                    </div>
+                    
+                    <div class="govuk-!-margin-top-3">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="town-or-city">
+                            Town or city
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="town-or-city" name="town-or-city" type="text" aria-describedby="town-or-city-hint">
+                    </div>                
+                
+                    <div class="govuk-!-margin-top-3">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="county">
+                            County (optional)
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="county" name="county" type="text" aria-describedby="county-hint">
+                    </div>
+
+                    <div class="govuk-!-margin-top-3">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="postcode">
+                            Postcode
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-half" id="postcode" name="postcode" type="text" aria-describedby="postcode-hint">
+                    </div>
+
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
                 
             </div>
         </form>

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+        
+        <h1 class="govuk-heading-xl">
+            Not guilty plea
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <p>Provide information for magistrates ahead of your court hearing.</p>
+                                
+                <div>
+                    <label class="govuk-heading-m" for="more-detail">
+                        Why do you believe you are not guilty?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="10" aria-describedby="more-detail-hint"></textarea>
+                </div>
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+          
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

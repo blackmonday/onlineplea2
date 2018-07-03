@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Declaration
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <p>I confirm that:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>I've read and understand the charges against me</li>
+                    <li>I'm the person named in the Single Justice Procedure notice</li>
+                    <li>the facts I've given are correct as far as I know</li>
+                </ul>                
+                
+                <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        You may be prosecuted if you make a false statement or deliberately don't declare all relevant facts
+                    </strong>
+                </div>                
+                
+                <div class="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="confirm" name="confirm" type="checkbox" value="I confirm">
+                        <label class="govuk-label govuk-checkboxes__label" for="confirm">
+                            I confirm
+                        </label>
+                    </div>
+                </div>
+
+        
+
+        
+        
+                
+                
+                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Confirm and submit your plea</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+    
+    </div>
+    
+</div>
+
+{% endblock %}

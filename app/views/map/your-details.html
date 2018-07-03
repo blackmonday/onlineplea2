@@ -9,8 +9,35 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
-<div class="govuk-grid-row">
+<script>
+    window.onload = function() {
+        var defendantAddressLine1 = document.getElementById('defendant-address-line-1').innerHTML;
+        var defendantAddressLine2 = document.getElementById('defendant-address-line-2').innerHTML;
+        var defendantAddressCity = document.getElementById('defendant-address-city').innerHTML;
+        var defendantAddressPostcode = document.getElementById('defendant-address-postcode').innerHTML;
+        
+        if (defendantAddressLine1 == "<br>") {
+            document.getElementById('defendant-address-line-1').style.display = "none"
+        }
+        if (defendantAddressLine2 == "<br>") {
+            document.getElementById('defendant-address-line-2').style.display = "none"
+        }
+        if (defendantAddressCity == "<br>") {
+            document.getElementById('defendant-address-city').style.display = "none"
+        }
+        
+        if (defendantAddressPostcode == "LL48 6ER" || defendantAddressPostcode == "LL486ER") {
+            alert('WELSH!!!');
+        }
+        
+    }
+</script>
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-two-thirds">
+        
+        {% include "includes/cya.html" %}
+                
         <h1 class="govuk-heading-xl">
             Your details
         </h1>
@@ -18,10 +45,11 @@
         <h2 class="govuk-heading-m">Check your name and address</h2>
         
         <div class="govuk-inset-text">
-            <span id="">Sam Smith<br></span>
-            <span id="">38A Baker Street<br></span>
-            <span id="">London<br></span>
-            <span id="">W1 7SX<br></span>
+            <span id="defendant-name">Sam Smith<br></span>
+            <span id="defendant-address-line-1">{{data['defendant-address-line-1']}}<br></span>
+            <span id="defendant-address-line-2">{{data['defendant-address-line-2']}}<br></span>
+            <span id="defendant-address-city">{{data['defendant-address-city']}}<br></span>
+            <span id="defendant-address-postcode" style="text-transform: uppercase">{{data['defendant-address-postcode']}}</span>
         </div>
 
         <form action="" method="post">
@@ -50,7 +78,10 @@
                     </div>
                 </fieldset>
 
-                <button type="submit" class="govuk-button govuk-!-margin-top-3">Continue</button> 
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
 
             </div>                
                 

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Give feedback
+        </h1>
+
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                
+                <div class="">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h1 class="govuk-fieldset__heading">
+                                Overall, how did you feel about the service you received today?
+                            </h1>
+                        </legend>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="feedback-1" name="feedback" type="radio" value="Very satisfied">
+                                <label class="govuk-label govuk-radios__label" for="feedback-1">
+                                    Very satisfied
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="feedback-2" name="feedback" type="radio" value="Satisfied">
+                                <label class="govuk-label govuk-radios__label" for="feedback-2">
+                                    Satisfied
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="feedback-3" name="feedback" type="radio" value="Neither satisfied or dissatisfied">
+                                <label class="govuk-label govuk-radios__label" for="feedback-3">
+                                    Neither satisfied or dissatisfied
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="feedback-4" name="feedback" type="radio" value="Dissatisfied">
+                                <label class="govuk-label govuk-radios__label" for="feedback-4">
+                                    Dissatisfied
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="feedback-4" name="feedback" type="radio" value="Very dissatisfied">
+                                <label class="govuk-label govuk-radios__label" for="feedback-4">
+                                    Very dissatisfied
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+                
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold govuk-!-margin-top-6" for="more-feedback">
+                        How could we improve this service?
+                    </label>
+                    <span id="more-feedback-hint" class="govuk-hint">
+                        Please don’t include any personal or financial information, for example your National Insurance number or credit card numbers
+                    </span>
+                    <textarea class="govuk-textarea" id="more-feedback" name="more-feedback" rows="5" aria-describedby="more-feedback-hint"></textarea>
+                </div>                
+                
+                
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+        
+        <!--
+        {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-1.html" %}
+        -->
+    
+    </div>
+    
+</div>
+
+{% endblock %}

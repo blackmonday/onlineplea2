@@ -1,0 +1,555 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/breadcrumb.html" %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+    <div class="govuk-grid-column-full-width">
+        <h1 class="govuk-heading-xl">
+            Check your answers
+        </h1>
+        
+        <p id="returnToCYA" style="color: red">{{data['returnToCYA']}}</p>
+
+        <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+        <!--   * `app-check-your-answers--short` for short questions -->
+        <!--   * `app-check-your-answers__questions-long` for long questions -->
+        <!--   * none for single group of q&a -->
+        
+        <!-- ************ -->
+        <!-- ************ -->
+        <!-- ************ -->
+        <!-- ************ -->
+        <!-- ************ -->
+        <!-- YOUR DETAILS -->
+        <dl class="app-check-your-answers app-check-your-answers--short">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your details
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-details.html">
+                        Change<span class="govuk-visually-hidden"> your details</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Name
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Address
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    Address line 1<br />
+                    Address line 2<br />
+                    County<br />
+                    Town or City<br />
+                    Postcode
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Home telephone
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Mobile number
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Date of birth
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    National Insurance number
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+        </dl>
+
+
+        <!-- ***************** -->
+        <!-- ***************** -->
+        <!-- ***************** -->
+        <!-- ***************** -->
+        <!-- ***************** -->
+        <!-- YOUR PLEA - GUILTY-->
+        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your plea (guilty)
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-plea.html">
+                        Change<span class="govuk-visually-hidden"> your plea</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Plea
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Coming to court
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Information for magistrates
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+        </dl>
+        
+        
+
+
+        <!-- ********************* -->
+        <!-- ********************* -->
+        <!-- ********************* -->
+        <!-- ********************* -->
+        <!-- YOUR PLEA - NOT GUILTY-->
+        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your plea ( not guilty)
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-plea.html">
+                        Change<span class="govuk-visually-hidden"> your plea</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Plea
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Why do you believe you are not guilty?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <!-- ******************* -->
+            <!-- ******************* -->
+            <!-- PROSECUTION WITNESS -->
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you want a witness on this statement to attend?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter the witness name and why you want them to attend
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <!-- ************ -->
+            <!-- ************ -->
+            <!-- YOUR WITNESS -->
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you want to bring your own witness?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter the name and address of your witness and their age and date of birth if known
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <!-- *************** -->
+            <!-- *************** -->
+            <!-- ATTENDING COURT -->
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Are there any dates you or your witness can not attend court?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter the dates you or your witness can not attend court
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you need an interpreter in court?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Which language?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+        </dl>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- YOUR FINANCES -->
+        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your finances
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-finances.html">
+                        Change<span class="govuk-visually-hidden"> your finances</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Income (after tax)
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx paid yyy
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    National Insurance number
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Your employment status
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Are you claiming any benefits?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    If you need to pay a penalty, would you like us to deduct it from your benefits?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Benefits you are claiming
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    Deductions from earnings
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+        </dl>            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- YOUR EMPLOYER -->
+        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your employment
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-employment.html">
+                        Change<span class="govuk-visually-hidden"> your employment</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Employee reference
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Employer's name
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Employer's address
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    Address line 1<br />
+                    Address line 2<br />
+                    County<br />
+                    Town or City<br />
+                    Postcode
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Employer's telephone
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+        </dl>
+
+ 
+        <!-- ************** -->
+        <!-- ************** -->
+        <!-- ************** -->
+        <!-- ************** -->
+        <!-- ************** -->
+        <!-- YOUR OUTGOINGS -->
+        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question govuk-heading-m">
+                    Your outgoings
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="your-outgoings.html">
+                        Change<span class="govuk-visually-hidden"> monthly outgoings</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Would you like to give details of your personal bills?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Monthly amount
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    xxx
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+        </dl>
+        
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                <div class="govuk-!-margin-top-6">
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Confirm and continue</button>
+                    <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
+                </div>
+                
+            </div>
+        </form>
+        
+        {% include "includes/welsh.html" %}
+
+    </div>
+        
+</div>
+
+{% endblock %}
