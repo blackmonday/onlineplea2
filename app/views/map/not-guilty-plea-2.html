@@ -33,7 +33,7 @@
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="prosecution-witness-attend-1" name="prosecution-witness-attend" type="radio" value="Yes" data-aria-controls="prosecution-witness-attend-1-conditional">
-                                <label class="govuk-label govuk-radios__label" for="prosecution-witness-attend-1">
+                                <label class="govuk-label govuk-radios__label" for="prosecution-witness-attend-1" {{ checked('prosecution-witness-attend','Yes') }}>
                                     Yes
                                 </label>
                             </div>
@@ -42,12 +42,12 @@
                                     <label class="govuk-label" for="prosecution-witness-attend-1-detail">
                                         Enter their name and why you want them to attend
                                     </label>
-                                    <textarea class="govuk-textarea" id="prosecution-witness-attend-1-detail" name="prosecution-witness-attend-1-detail" rows="5" aria-describedby="prosecution-witness-attend-1-detail-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="prosecution-witness-attend-1-detail" name="prosecution-witness-attend-1-detail" rows="5" aria-describedby="prosecution-witness-attend-1-detail-hint">{{data['prosecution-witness-attend-1-detail']}}</textarea>
                                 </div>
                             </div>
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="prosecution-witness-attend-2" name="prosecution-witness-attend" type="radio" value="No">
+                                <input class="govuk-radios__input" id="prosecution-witness-attend-2" name="prosecution-witness-attend" type="radio" value="No" {{ checked('prosecution-witness-attend','No') }}>
                                 <label class="govuk-label govuk-radios__label" for="prosecution-witness-attend-2">
                                     No
                                 </label>
@@ -56,24 +56,7 @@
                         </div>
                     </fieldset>
                 </div>                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                                
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
@@ -82,8 +65,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

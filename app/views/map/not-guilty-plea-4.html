@@ -32,7 +32,7 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="dates-to-avoid-1" name="dates-to-avoid" type="radio" value="Yes" data-aria-controls="dates-to-avoid-1-conditional">
+                                <input class="govuk-radios__input" id="dates-to-avoid-1" name="dates-to-avoid" type="radio" value="Yes" data-aria-controls="dates-to-avoid-1-conditional" {{ checked('dates-to-avoid','Yes') }}>
                                 <label class="govuk-label govuk-radios__label" for="dates-to-avoid-1">
                                     Yes
                                 </label>
@@ -42,12 +42,12 @@
                                     <label class="govuk-label" for="dates-to-avoid-1-detail">
                                         Enter the dates you or your witness can not attend court
                                     </label>
-                                    <textarea class="govuk-textarea" id="dates-to-avoid-1-detail" name="dates-to-avoid-1-detail" rows="5" aria-describedby="dates-to-avoid-1-detail-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="dates-to-avoid-1-detail" name="dates-to-avoid-1-detail" rows="5" aria-describedby="dates-to-avoid-1-detail-hint">{{data['dates-to-avoid-1-detail']}}</textarea>
                                 </div>
                             </div>
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="dates-to-avoid-2" name="dates-to-avoid" type="radio" value="No">
+                                <input class="govuk-radios__input" id="dates-to-avoid-2" name="dates-to-avoid" type="radio" value="No" {{ checked('dates-to-avoid','No') }}>
                                 <label class="govuk-label govuk-radios__label" for="dates-to-avoid-2">
                                     No
                                 </label>
@@ -66,27 +66,27 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="interpreter-1" name="interpreter" type="radio" value="Yes" data-aria-controls="interpreter-1-conditional">
-                                <label class="govuk-label govuk-radios__label" for="interpreter-1">
+                                <input class="govuk-radios__input" id="not-guilty-interpreter-1" name="not-guilty-interpreter" type="radio" value="Yes" data-aria-controls="not-guilty-interpreter-1-conditional" {{ checked('not-guilty-interpreter','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="not-guilty-interpreter-1">
                                     Yes
                                 </label>
                             </div>
-                            <div class="govuk-radios__conditional" id="interpreter-1-conditional">
+                            <div class="govuk-radios__conditional" id="not-guilty-interpreter-1-conditional">
                                 <div class="govuk-form-group">
-                                    <label class="govuk-label" for="interpreter-1-detail">
+                                    <label class="govuk-label" for="not-guilty-interpreter-1-detail">
                                         Which language?
                                     </label>
-                                    <span id="interpreter-hint" class="govuk-hint">
+                                    <span id="not-guilty-interpreter-hint" class="govuk-hint">
                                         You can include sign language
                                     </span>
-                                    <input class="govuk-input govuk-!-width-one-half" id="interpreter-1-detail" name="interpreter-1-detail" type="text">
+                                    <input class="govuk-input govuk-!-width-one-half" id="not-guilty-interpreter-1-detail" name="not-guilty-interpreter-1-detail" type="text" value="{{data['not-guilty-interpreter-1-detail']}}">
 
                                 </div>
                             </div>
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="interpreter-2" name="interpreter" type="radio" value="No">
-                                <label class="govuk-label govuk-radios__label" for="interpreter-2">
+                                <input class="govuk-radios__input" id="not-guilty-interpreter-2" name="not-guilty-interpreter" type="radio" value="No" {{ checked('not-guilty-interpreter','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="not-guilty-interpreter-2">
                                     No
                                 </label>
                             </div>
@@ -102,8 +102,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

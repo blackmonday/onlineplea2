@@ -24,10 +24,10 @@
                 <p>Provide information for magistrates ahead of your court hearing.</p>
                                 
                 <div>
-                    <label class="govuk-heading-m" for="more-detail">
+                    <label class="govuk-heading-m" for="not-guilty-more-detail">
                         Why do you believe you are not guilty?
                     </label>
-                    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="10" aria-describedby="more-detail-hint"></textarea>
+                    <textarea class="govuk-textarea" id="not-guilty-more-detail" name="not-guilty-more-detail" rows="10" aria-describedby="not-guilty-more-detail-hint">{{data['not-guilty-more-detail']}}</textarea>
                 </div>
                 
                 <div class="govuk-!-margin-top-6">
@@ -38,8 +38,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

@@ -30,27 +30,27 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="interpreter-1" name="interpreter" type="radio" value="Yes" data-aria-controls="interpreter-1-conditional">
-                                <label class="govuk-label govuk-radios__label" for="interpreter-1">
+                                <input class="govuk-radios__input" id="guilty-interpreter-1" name="guilty-interpreter" type="radio" value="Yes" data-aria-controls="guilty-interpreter-1-conditional" {{ checked('guilty-interpreter','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="guilty-interpreter-1">
                                     Yes
                                 </label>
                             </div>
-                            <div class="govuk-radios__conditional" id="interpreter-1-conditional">
+                            <div class="govuk-radios__conditional" id="guilty-interpreter-1-conditional">
                                 <div class="govuk-form-group">
-                                    <label class="govuk-label" for="interpreter-1-detail">
+                                    <label class="govuk-label" for="guilty-interpreter-1-detail">
                                         Which language?
                                     </label>
-                                    <span id="interpreter-hint" class="govuk-hint">
+                                    <span id="guilty-interpreter-hint" class="govuk-hint">
                                         You can include sign language
                                     </span>
-                                    <input class="govuk-input govuk-!-width-one-half" id="interpreter-1-detail" name="interpreter-1-detail" type="text">
+                                    <input class="govuk-input govuk-!-width-one-half" id="guilty-interpreter-1-detail" name="guilty-interpreter-1-detail" type="text" value="{{data['guilty-interpreter-1-detail']}}">
 
                                 </div>
                             </div>
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="interpreter-2" name="interpreter" type="radio" value="No">
-                                <label class="govuk-label govuk-radios__label" for="interpreter-2">
+                                <input class="govuk-radios__input" id="guilty-interpreter-2" name="guilty-interpreter" type="radio" value="No" {{ checked('guilty-interpreter','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="guilty-interpreter-2">
                                     No
                                 </label>
                             </div>
@@ -67,8 +67,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

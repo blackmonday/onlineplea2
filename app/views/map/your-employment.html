@@ -29,14 +29,14 @@
                     <span id="employee-reference-hint" class="govuk-hint">
                         Also know as employee number or payroll reference - this should be on your payslip
                     </span>
-                    <input class="govuk-input govuk-!-width-one-third" id="employee-reference" name="employee-reference" type="text" aria-describedby="employee-reference-hint">
+                    <input class="govuk-input govuk-!-width-one-third" id="employee-reference" name="employee-reference" type="text" aria-describedby="employee-reference-hint" value="{{data['employee-reference']}}">
                 </div>                
                 
                 <div class=" govuk-!-margin-top-3">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employers-name">
                         Employer's name
                     </label>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="employers-name" name="employers-name" type="text" aria-describedby="employers-name-hint">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employers-name" name="employers-name" type="text" aria-describedby="employers-name-hint" value="{{data['employers-name']}}">
                 </div>
                 
                 <h2 class="govuk-heading-m govuk-!-margin-top-9">
@@ -58,54 +58,37 @@
                     <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-line-1">
                         Address
                     </label>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="employer-address-line-1" type="text" aria-describedby="employer-address-line-1-hint">
-                    <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-top-2" id="employer-address-line-2" name="employer-address-line-2" type="text" aria-describedby="employer-address-line-2-hint">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-line-1" name="employer-address-line-1" type="text" aria-describedby="employer-address-line-1-hint" value="{{data['employer-address-line-1']}}">
+                    <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-top-2" id="employer-address-line-2" name="employer-address-line-2" type="text" aria-describedby="employer-address-line-2-hint" value="{{data['employer-address-line-2']}}">
                 </div>
                 
                 <div class="govuk-!-margin-top-3">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-town-or-city">
                         Town or city
                     </label>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-town-or-city" name="employer-address-town-or-city" type="text" aria-describedby="employer-address-town-or-city-hint">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-town-or-city" name="employer-address-town-or-city" type="text" aria-describedby="employer-address-town-or-city-hint" value="{{data['employer-address-town-or-city']}}">
                 </div>
                 
                 <div class="govuk-!-margin-top-3">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-county">
                         County (optional)
                     </label>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-county" name="employer-address-county" type="text" aria-describedby="employer-address-county-hint">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employer-address-county" name="employer-address-county" type="text" aria-describedby="employer-address-county-hint" value="{{data['employer-address-county']}}">
                 </div>
                 
                 <div class="govuk-!-margin-top-3">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employer-address-postcode">
                         Postcode
                     </label>
-                    <input class="govuk-input govuk-!-width-one-quarter" id="employer-address-postcode" name="employer-address-postcode" type="text" aria-describedby="employer-address-postcode-hint">
+                    <input class="govuk-input govuk-!-width-one-quarter" id="employer-address-postcode" name="employer-address-postcode" type="text" aria-describedby="employer-address-postcode-hint" value="{{data['employer-address-postcode']}}">
                 </div>
                 
                 <div class="govuk-!-margin-top-3">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employer-telephone">
                         Employer telephone (optional)
                     </label>
-                    <input class="govuk-input govuk-!-width-one-third" id="employer-telephone" name="employer-telephone" type="text" aria-describedby="employer-telephone-hint">
+                    <input class="govuk-input govuk-!-width-one-third" id="employer-telephone" name="employer-telephone" type="text" aria-describedby="employer-telephone-hint" value="{{data['employer-telephone']}}">
                 </div>
-                
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
@@ -116,7 +99,7 @@
                 
         </form>
         
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

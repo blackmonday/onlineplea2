@@ -27,7 +27,7 @@
         }
         
         if (defendantAddressPostcode == "LL48 6ER" || defendantAddressPostcode == "LL486ER") {
-            alert('WELSH!!!');
+            //alert('WELSH!!!');
         }
         
     }
@@ -64,13 +64,13 @@
                     </legend>
                     <div class="govuk-radios govuk-radios--inline">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="are-these-details-correct-1" name="are-these-details-correct" type="radio" value="Yes">
+                            <input class="govuk-radios__input" id="are-these-details-correct-1" name="are-these-details-correct" type="radio" value="Yes" {{ checked('are-these-details-correct','Yes') }}>
                             <label class="govuk-label govuk-radios__label" for="are-these-details-correct-1">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="are-these-details-correct-2" name="are-these-details-correct" type="radio" value="No">
+                            <input class="govuk-radios__input" id="are-these-details-correct-2" name="are-these-details-correct" type="radio" value="No" {{ checked('are-these-details-correct','No') }}>
                             <label class="govuk-label govuk-radios__label" for="are-these-details-correct-2">
                                 No
                             </label>
@@ -87,7 +87,7 @@
                 
         </form>
         
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

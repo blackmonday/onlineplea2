@@ -20,17 +20,59 @@ router.post('/', function (req, res) {
 
 router.post('/map/start-page', function (req, res) {
 
-    req.session.data['defendant-address-line-1'] = "line 1"
-    req.session.data['defendant-address-line-2'] = "line 2"
-    req.session.data['defendant-address-city'] = "city"
-    req.session.data['defendant-address-postcode'] = "postcode"
+    req.session.data['defendant-first-name'] = "Sam"
+    req.session.data['defendant-last-name'] = "Smith"
+    req.session.data['defendant-address-line-1'] = "38A Baker Street"
+    req.session.data['defendant-address-line-2'] = ""
+    req.session.data['defendant-address-city'] = "London"
+    req.session.data['defendant-address-county'] = ""
+    req.session.data['defendant-address-postcode'] = ""
     
+    req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+    req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+    req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+    req.session.data['new-defendant-address-line-2'] = req.session.data['defendant-address-line-2']
+    req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+    req.session.data['new-defendant-address-county'] = req.session.data['defendant-address-county']
+    req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+    
+    req.session.data['nin'] = ""
+    
+    req.session.data['dob-day'] = "1"
+    req.session.data['dob-month'] = "1"
+    req.session.data['dob-year'] = "1981"
+    
+    req.session.data['charge-title'] = "Passenger failing to produce a ticket"
+    req.session.data['charge-details-1'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
+    req.session.data['charge-details-2'] = ""
+    req.session.data['charge-details-3'] = ""
+    req.session.data['charge-details-4'] = ""
+
     res.redirect('/map/find-your-case')
     
 });
 
 router.post('/map/find-your-case', function (req, res) {
+    
+    var defendantAddressPostcode = req.session.data['defendant-address-postcode']
+    req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+    
+    if (defendantAddressPostcode == "LL48 6ER" || defendantAddressPostcode == "LL486ER") {
+        req.session.data['defendant-address-city'] = "Portmeirion"
+        req.session.data['defendant-address-county'] = "Penrhyndeudraeth"
+
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-county'] = req.session.data['defendant-address-county']
+    }
+    
+    var URN = req.session.data['URN']
+    
+    if (URN == "xxx") {
+        // different URN will have data for different prosecutors - DATA TO BE CONFIRMED
+    }
+
     res.redirect('/map/your-details')
+    
 });
 
 router.post('/map/your-details', function (req, res) {
@@ -45,7 +87,17 @@ router.post('/map/your-details', function (req, res) {
 });
 
 router.post('/map/your-details-2', function (req, res) {
+    
+    req.session.data['defendant-first-name'] = req.session.data['new-defendant-first-name']
+    req.session.data['defendant-last-name'] = req.session.data['new-defendant-last-name']
+    req.session.data['defendant-address-line-1'] = req.session.data['new-defendant-address-line-1']
+    req.session.data['defendant-address-line-2'] = req.session.data['new-defendant-address-line-2']
+    req.session.data['defendant-address-city'] = req.session.data['new-defendant-address-city']
+    req.session.data['defendant-address-county'] = req.session.data['new-defendant-address-county']
+    req.session.data['defendant-address-postcode'] = req.session.data['new-defendant-address-postcode']
+
     res.redirect('/map/your-details-3')
+    
 });
 
 router.post('/map/your-details-3', function (req, res) {
@@ -186,7 +238,34 @@ router.post('/map/your-outgoings', function (req, res) {
 });
 
 router.post('/map/your-monthly-outgoings', function (req, res) {
+    
+    if (req.session.data['other-expenses'] == "No") {
+        req.session.data['other-expenses-details'] = ""
+        req.session.data['other-expenses-details-amount'] = ""
+    }
+    
+    if (req.session.data['other-expenses-details'] != "") {
+        req.session.data['other-expenses-details'] = 'including: ' + req.session.data['other-expenses-details']
+    }
+    
+    var total = 
+        Number(req.session.data['accommodation']) + 
+        Number(req.session.data['council-tax']) + 
+        Number(req.session.data['household-bills']) + 
+        Number(req.session.data['travel-expenses']) + 
+        Number(req.session.data['child-maintenance']) + 
+        Number(req.session.data['other-expenses-details-amount'])
+
+    req.session.data['outgoings-total'] = parseFloat(total).toFixed(2)
+    
+    if (req.session.data['outgoings-total'] <= 0) {
+        req.session.data['outgoings-total'] = "No details given"
+    } else {
+        req.session.data['outgoings-total'] = "£" + parseFloat(total).toFixed(2)
+    }
+    
     res.redirect('/map/check-your-answers')
+    
 });
 
 router.post('/map/check-your-answers', function (req, res) {    

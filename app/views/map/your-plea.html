@@ -9,6 +9,32 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
+<script>
+    window.onload = function() {
+        
+        /* ***************************** */
+        /* HIDE CHARGE DETAILS AS NEEDED */
+        var chargeDetails1 = document.getElementById('chargeDetails1').innerHTML;
+        var chargeDetails2 = document.getElementById('chargeDetails2').innerHTML;
+        var chargeDetails3 = document.getElementById('chargeDetails3').innerHTML;
+        var chargeDetails4 = document.getElementById('chargeDetails4').innerHTML;
+        
+        if (chargeDetails1 == "<br>") {
+            document.getElementById('chargeDetails1').style.display = "none";
+        }
+        if (chargeDetails2 == "<br>") {
+            document.getElementById('chargeDetails2').style.display = "none";
+        }
+        if (chargeDetails3 == "<br>") {
+            document.getElementById('chargeDetails3').style.display = "none";
+        }
+        if (chargeDetails4 == "") {
+            document.getElementById('chargeDetails4').style.display = "none";
+        }
+
+    }
+</script>
+
 <div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-two-thirds">
         
@@ -31,17 +57,20 @@
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
         
         <h2 class="govuk-heading-l">
-            Passenger failing to produce a ticket
+            What you've been charged with
         </h2>
 
         <details class="govuk-details" open>
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                    Passenger failing to produce a ticket
+                    {{data['charge-title']}}
                 </span>
             </summary>
                 <div class="govuk-details__text">
-                    On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.
+                    <span id="chargeDetails1">{{data['charge-details-1']}}<br></span>
+                    <span id="chargeDetails2">{{data['charge-details-2']}}<br></span>
+                    <span id="chargeDetails3">{{data['charge-details-3']}}<br></span>
+                    <span id="chargeDetails4">{{data['charge-details-4']}}</span>
                 </div>
         </details>
         
@@ -63,7 +92,7 @@
 
                     <div class="govuk-radios" data-module="radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-do-you-plead-1" name="how-do-you-plead" type="radio" value="Guilty" data-aria-controls="conditional-how-do-you-plead-1">
+                            <input class="govuk-radios__input" id="how-do-you-plead-1" name="how-do-you-plead" type="radio" value="Guilty" data-aria-controls="conditional-how-do-you-plead-1" {{ checked('how-do-you-plead','Guilty') }}>
                             <label class="govuk-label govuk-radios__label" for="how-do-you-plead-1">
                                 Guilty
                             </label>
@@ -76,7 +105,7 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-do-you-plead-2" name="how-do-you-plead" type="radio" value="Not guilty" data-aria-controls="conditional-how-do-you-plead-2">
+                            <input class="govuk-radios__input" id="how-do-you-plead-2" name="how-do-you-plead" type="radio" value="Not guilty" data-aria-controls="conditional-how-do-you-plead-2" {{ checked('how-do-you-plead','Not guilty') }}>
                             <label class="govuk-label govuk-radios__label" for="how-do-you-plead-2">
                                 Not guilty
                             </label>
@@ -102,7 +131,7 @@
             </div>
         </form>
         
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

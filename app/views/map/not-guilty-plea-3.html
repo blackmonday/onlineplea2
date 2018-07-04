@@ -35,7 +35,7 @@
                         </span>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="defence-witness-attend-1" name="defence-witness-attend" type="radio" value="Yes" data-aria-controls="defence-witness-attend-1-conditional">
+                                <input class="govuk-radios__input" id="defence-witness-attend-1" name="defence-witness-attend" type="radio" value="Yes" data-aria-controls="defence-witness-attend-1-conditional" {{ checked('defence-witness-attend','Yes') }}>
                                 <label class="govuk-label govuk-radios__label" for="defence-witness-attend-1">
                                     Yes
                                 </label>
@@ -45,12 +45,12 @@
                                     <label class="govuk-label" for="defence-witness-attend-1-detail">
                                         Enter the name and address of your witness and their age and date of birth if known
                                     </label>
-                                    <textarea class="govuk-textarea" id="defence-witness-attend-1-detail" name="defence-witness-attend-1-detail" rows="5" aria-describedby="defence-witness-attend-1-detail-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="defence-witness-attend-1-detail" name="defence-witness-attend-1-detail" rows="5" aria-describedby="defence-witness-attend-1-detail-hint">{{data['defence-witness-attend-1-detail']}}</textarea>
                                 </div>
                             </div>
 
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="defence-witness-attend-2" name="defence-witness-attend" type="radio" value="No">
+                                <input class="govuk-radios__input" id="defence-witness-attend-2" name="defence-witness-attend" type="radio" value="No" {{ checked('defence-witness-attend','No') }}>
                                 <label class="govuk-label govuk-radios__label" for="defence-witness-attend-2">
                                     No
                                 </label>
@@ -60,23 +60,6 @@
                     </fieldset>
                 </div>                
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
@@ -85,8 +68,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

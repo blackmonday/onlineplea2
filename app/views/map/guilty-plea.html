@@ -35,13 +35,13 @@
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-radios" data-module="radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="guilty-plea-come-to-court-1" name="guilty-plea-come-to-court" type="radio" value="No, I do not want to come to court">
+                            <input class="govuk-radios__input" id="guilty-plea-come-to-court-1" name="guilty-plea-come-to-court" type="radio" value="No, I do not want to come to court" {{ checked('guilty-plea-come-to-court','No, I do not want to come to court') }}>
                             <label class="govuk-label govuk-radios__label" for="guilty-plea-come-to-court-1">
                                 No, I do not want to come to court
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="guilty-plea-come-to-court-2" name="guilty-plea-come-to-court" type="radio" value="Yes, I want to come to court">
+                            <input class="govuk-radios__input" id="guilty-plea-come-to-court-2" name="guilty-plea-come-to-court" type="radio" value="Yes, I want to come to court" {{ checked('guilty-plea-come-to-court','Yes, I want to come to court') }}>
                             <label class="govuk-label govuk-radios__label" for="guilty-plea-come-to-court-2">
                                 Yes, I want to come to court
                             </label>
@@ -60,7 +60,7 @@
 
                         <p>They’ll take what you say into account when deciding on the sentence.</p>
                     </span>
-                    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="10" aria-describedby="more-detail-hint"></textarea>
+                    <textarea class="govuk-textarea" id="guilty-more-detail" name="guilty-more-detail" rows="10" aria-describedby="guilty-more-detail-hint">{{ data['guilty-more-detail'] }}</textarea>
                 </div>
                 
                 <div class="govuk-!-margin-top-6">
@@ -71,7 +71,7 @@
             </div>
         </form>
         
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

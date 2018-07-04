@@ -30,14 +30,14 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-benefits-1" name="deduct-from-benefits" type="radio" value="Yes">
+                                <input class="govuk-radios__input" id="deduct-from-benefits-1" name="deduct-from-benefits" type="radio" value="Yes" {{ checked('deduct-from-benefits','Yes') }}>
                                 <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-1">
                                     Yes
                                 </label>
                             </div>
                             
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-benefits-2" name="deduct-from-benefits" type="radio" value="No" data-aria-controls="deduct-from-benefits-2-conditional">
+                                <input class="govuk-radios__input" id="deduct-from-benefits-2" name="deduct-from-benefits" type="radio" value="No" data-aria-controls="deduct-from-benefits-2-conditional" {{ checked('deduct-from-benefits','No') }}>
                                 <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-2">
                                     No
                                 </label>
@@ -80,8 +80,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

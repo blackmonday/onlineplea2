@@ -33,26 +33,26 @@
                         <label class="govuk-label govuk-!-font-weight-bold" for="home-telephone">
                             Home telephone
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="home-telephone" name="home-telephone" type="text" aria-describedby="home-telephone-hint">
+                        <input class="govuk-input govuk-!-width-one-third" id="home-telephone" name="home-telephone" type="text" aria-describedby="home-telephone-hint" value="{{ data['home-telephone'] }}">
                     </div>
                     
                     <div class="govuk-!-margin-top-3">
                         <label class="govuk-label govuk-!-font-weight-bold" for="mobile">
                             Mobile
                         </label>
-                        <input class="govuk-input govuk-!-width-one-third" id="mobile" name="mobile" type="text" aria-describedby="mobile-hint">
+                        <input class="govuk-input govuk-!-width-one-third" id="mobile" name="mobile" type="text" aria-describedby="mobile-hint" value="{{ data['mobile'] }}">
                     </div>
                 </div>                
                 
                 <div class="govuk-!-margin-top-9">
                     <div>
-                        <label class="govuk-label govuk-!-font-weight-bold" for="home-telephone">
+                        <label class="govuk-label govuk-!-font-weight-bold" for="email">
                             Email address
                         </label>
                         <span id="email-hint" class="govuk-hint">
                             We will automatically email you confirmation when the plea is submitted
                         </span>
-                        <input class="govuk-input govuk-!-width-one-third" id="home-telephone" name="home-telephone" type="text" aria-describedby="home-telephone-hint">
+                        <input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="text" aria-describedby="email-hint" value="{{ data['email'] }}">
                     </div>
                 </div>
                 
@@ -75,7 +75,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="dob-day">
                                         Day
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+                                    <input class="govuk-input govuk-date-input__input" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" value="{{ data['dob-day'] }}">
                                 </div>
                             </div>
                             <div class="govuk-date-input__item govuk-date-input__item--month">
@@ -83,7 +83,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="dob-month">
                                         Month
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+                                    <input class="govuk-input govuk-date-input__input" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" value="{{ data['dob-month'] }}">
                                 </div>
                             </div>
                             <div class="govuk-date-input__item govuk-date-input__item--year">
@@ -91,7 +91,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="dob-year">
                                         Year
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                                    <input class="govuk-input govuk-date-input__input" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" value="{{ data['dob-year'] }}">
                                 </div>
                             </div>
                         </div>
@@ -119,8 +119,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     

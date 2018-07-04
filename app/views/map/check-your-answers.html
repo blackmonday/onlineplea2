@@ -9,20 +9,181 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
+<script>
+
+    window.onload = function() {
+
+        /* ************* */
+        /* ************* */
+        /* CONVERT MONTH */
+        var defendantDOBMonth = document.getElementById("defendant-dob-month").innerText;
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        document.getElementById("defendant-dob-month").innerText = months[defendantDOBMonth-1];
+        
+        /* *********************** */
+        /* CHECK DEFENDANT ADDRESS */
+        var defendantAddressLine1 = document.getElementById('defendantAddressLine1').innerHTML;
+        var defendantAddressLine2 = document.getElementById('defendantAddressLine2').innerHTML;
+        var defendantAddressCity = document.getElementById('defendantAddressCity').innerHTML;
+        var defendantAddressCounty = document.getElementById('defendantAddressCounty').innerHTML;
+        var defendantAddressPostcode = document.getElementById('defendantAddressPostcode').innerHTML;
+        
+        if (defendantAddressLine1 == "<br>") {
+            document.getElementById('defendantAddressLine1').style.display = "none";
+        }
+        if (defendantAddressLine2 == "<br>") {
+            document.getElementById('defendantAddressLine2').style.display = "none";
+        }
+        if (defendantAddressCity == "<br>") {
+            document.getElementById('defendantAddressCity').style.display = "none";
+        }
+        if (defendantAddressCounty == "<br>") {
+            document.getElementById('defendantAddressCounty').style.display = "none";
+        }
+        if (defendantAddressPostcode == "") {
+            document.getElementById('defendantAddressPostcode').style.display = "none";
+        }
+    
+        /* ********************** */
+        /* CHECK EMPLOYER ADDRESS */
+        var employerAddressLine1 = document.getElementById('employerAddressLine1').innerHTML;
+        var employerAddressLine2 = document.getElementById('employerAddressLine2').innerHTML;
+        var employerAddressCity = document.getElementById('employerAddressCity').innerHTML;
+        var employerAddressCounty = document.getElementById('employerAddressCounty').innerHTML;
+        var employerAddressPostcode = document.getElementById('employerAddressPostcode').innerHTML;
+        
+        if (employerAddressLine1 == "<br>") {
+            document.getElementById('employerAddressLine1').style.display = "none";
+        }
+        if (employerAddressLine2 == "<br>") {
+            document.getElementById('employerAddressLine2').style.display = "none";
+        }
+        if (employerAddressCity == "<br>") {
+            document.getElementById('employerAddressCity').style.display = "none";
+        }
+        if (employerAddressCounty == "<br>") {
+            document.getElementById('employerAddressCounty').style.display = "none";
+        }
+        if (employerAddressPostcode == "") {
+            document.getElementById('employerAddressPostcode').style.display = "none";
+        }
+    
+        
+        /* **************** */
+        /* HOW DO YOU PLEAD */
+        var howDoYouPlead = document.getElementById('howDoYouPlead').innerText;
+        
+        if (howDoYouPlead == "Guilty") {
+            document.getElementById('notGuiltyPlea').style.display = "none";
+            
+        } else if (howDoYouPlead == "Not guilty") {
+            document.getElementById('guiltyPlea').style.display = "none";
+            
+        }
+        
+        
+        /* *********************** */
+        /* CHECK EMPLOYMENT STATUS */
+        var employmentStatus = document.getElementById('employmentStatus').innerText;
+        if (employmentStatus == "Other (for example, retired, student)") {
+            document.getElementById('deductFromEarnings').style.display = "none";
+        } else {
+            document.getElementById('otherIncomeDetails').style.display = "none";
+        }
+        if (employmentStatus == "Unemployed") {
+            document.getElementById('deductFromEarnings').style.display = "none";
+            
+        }
+        
+        
+        /* *********************** */
+        /* GUILTY COMING TO COURT? */
+        var comeToCourt = document.getElementById('comeToCourt').innerText;
+        if (comeToCourt == "No, I do not want to come to court") {
+            document.getElementById('guiltyInterpreter').style.display = "none";
+            document.getElementById('guiltyInterpreterLanguage').style.display = "none";
+        }
+        
+        var guiltyInterpreterAnswer = document.getElementById('guiltyInterpreterAnswer').innerText;
+        if (guiltyInterpreterAnswer == "No") {
+            document.getElementById('guiltyInterpreterLanguage').style.display = "none";
+        }
+        
+        
+        /* *************************** */
+        /* NOT GUILTY COMING TO COURT? */
+        var prosecutionWitnessAttend = document.getElementById('prosecutionWitnessAttend').innerText;
+        if (prosecutionWitnessAttend == "No") {
+            document.getElementById('prosecutionWitnessAttendDetail').style.display = "none";
+        }
+        
+        var defenceWitnessAttend = document.getElementById('defenceWitnessAttend').innerText;
+        if (defenceWitnessAttend == "No") {
+            document.getElementById('defenceWitnessAttendDetail').style.display = "none";
+        }
+        
+        var datesToAvoid = document.getElementById('datesToAvoid').innerText;
+        if (datesToAvoid == "No") {
+            document.getElementById('datesToAvoidDetail').style.display = "none";
+        }
+        
+        var notGuiltyInterpreter = document.getElementById('notGuiltyInterpreter').innerText;
+        if (notGuiltyInterpreter == "No") {
+            document.getElementById('notGuiltyInterpreterDetail').style.display = "none";
+        }
+        
+        /* ****************** */
+        /* CLAIMING BENEFITS? */
+        var claimingBenefits = document.getElementById('claimingBenefits').innerText;
+        if (claimingBenefits == "No") {
+            document.getElementById('claimingBenefitsDetail').style.display = "none";
+            document.getElementById('deductFromBenefits').style.display = "none";
+            
+        }
+
+        /* ********************* */
+        /* DEDUCT FROM EARNINGS? */
+        var deductFromEarningsAnswer = document.getElementById('deductFromEarningsAnswer').innerText;
+        if (deductFromEarningsAnswer == "No") {
+            document.getElementById('yourEmployment').style.display = "none";
+        }
+        
+        
+        /* ******************** */
+        /* CHECK YOUR OUTGOINGS */
+        var yourOutgoings = document.getElementById('yourOutgoings').innerText;
+        if (yourOutgoings == "No") {
+            document.getElementById('yourOutgoingsTotal').style.display = "none";
+        }
+        
+        /* **************************** */
+        /* CHECK OTHER EXPENSES DETAILS */
+        var otherExpensesDetails = document.getElementById('otherExpensesDetails').innerText;
+        if (otherExpensesDetails == " -") {
+            document.getElementById('otherExpensesDetails').style.display = "none";
+        }
+        
+        
+    }
+    
+</script>
+
 <div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-full-width">
         <h1 class="govuk-heading-xl">
             Check your answers
         </h1>
         
-        <p id="returnToCYA" style="color: red">{{data['returnToCYA']}}</p>
+        <p id="returnToCYA" style="color: red; display:none">{{data['returnToCYA']}}</p>
 
         <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
         <!--   * `app-check-your-answers--short` for short questions -->
         <!--   * `app-check-your-answers__questions-long` for long questions -->
         <!--   * none for single group of q&a -->
         
-        <!-- ************ -->
         <!-- ************ -->
         <!-- ************ -->
         <!-- ************ -->
@@ -47,7 +208,7 @@
                     Name
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['defendant-first-name']}} <span style="text-transform: uppercase">{{data['defendant-last-name']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -58,11 +219,11 @@
                     Address
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    Address line 1<br />
-                    Address line 2<br />
-                    County<br />
-                    Town or City<br />
-                    Postcode
+                    <span id="defendantAddressLine1">{{data['defendant-address-line-1']}}<br /></span>
+                    <span id="defendantAddressLine2">{{data['defendant-address-line-2']}}<br /></span>
+                    <span id="defendantAddressCity">{{data['defendant-address-city']}}<br /></span>
+                    <span id="defendantAddressCounty">{{data['defendant-address-county']}}<br /></span>
+                    <span id="defendantAddressPostcode">{{data['defendant-address-postcode']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -73,7 +234,7 @@
                     Home telephone
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['home-telephone']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -84,7 +245,7 @@
                     Mobile number
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['mobile']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -95,35 +256,23 @@
                     Date of birth
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['dob-day']}} <span id="defendant-dob-month">{{data['dob-month']}}</span> {{data['dob-year']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    National Insurance number
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
         </dl>
-
-
-        <!-- ***************** -->
-        <!-- ***************** -->
-        <!-- ***************** -->
-        <!-- ***************** -->
-        <!-- ***************** -->
-        <!-- YOUR PLEA - GUILTY-->
+        
+        <!-- ********* -->
+        <!-- ********* -->
+        <!-- ********* -->
+        <!-- ********* -->
+        <!-- YOUR PLEA -->
         <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question govuk-heading-m">
-                    Your plea (guilty)
+                    Your plea
                 </dt>
                 <dd class="app-check-your-answers__answer">
                 </dd>
@@ -138,65 +287,26 @@
                 <dt class="app-check-your-answers__question">
                     Plea
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                <dd id="howDoYouPlead" class="app-check-your-answers__answer">
+                    {{data['how-do-you-plead']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
+        </dl>
 
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Coming to court
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
+        <!-- *********************** -->
+        <!-- *********************** -->
+        <!-- *********************** -->
+        <!-- *********************** -->
+        <!-- YOUR PLEA - GUILTY PLEA -->
+        <dl id="guiltyPlea" class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-0">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Information for magistrates
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-        </dl>
-        
-        
-
-
-        <!-- ********************* -->
-        <!-- ********************* -->
-        <!-- ********************* -->
-        <!-- ********************* -->
-        <!-- YOUR PLEA - NOT GUILTY-->
-        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question govuk-heading-m">
-                    Your plea ( not guilty)
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                </dd>
-                <dd class="app-check-your-answers__change">
-                    <a href="your-plea.html">
-                        Change<span class="govuk-visually-hidden"> your plea</span>
-                    </a>
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Plea
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['guilty-more-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -204,107 +314,32 @@
 
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
-                    Why do you believe you are not guilty?
+                    Would you like to come to court?
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                <dd id="comeToCourt" class="app-check-your-answers__answer">
+                    {{data['guilty-plea-come-to-court']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
-            <!-- ******************* -->
-            <!-- ******************* -->
-            <!-- PROSECUTION WITNESS -->
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Do you want a witness on this statement to attend?
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Enter the witness name and why you want them to attend
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <!-- ************ -->
-            <!-- ************ -->
-            <!-- YOUR WITNESS -->
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Do you want to bring your own witness?
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Enter the name and address of your witness and their age and date of birth if known
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <!-- *************** -->
-            <!-- *************** -->
-            <!-- ATTENDING COURT -->
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Are there any dates you or your witness can not attend court?
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Enter the dates you or your witness can not attend court
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
+            <div id="guiltyInterpreter" class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Do you need an interpreter in court?
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                <dd id="guiltyInterpreterAnswer" class="app-check-your-answers__answer">
+                    {{data['guilty-interpreter']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
-            <div class="app-check-your-answers__contents">
+            <div id="guiltyInterpreterLanguage" class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Which language?
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['guilty-interpreter-1-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -312,21 +347,130 @@
 
         </dl>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!-- ************* -->
+        <!-- *************************** -->
+        <!-- *************************** -->
+        <!-- *************************** -->
+        <!-- *************************** -->
+        <!-- YOUR PLEA - NOT GUILTY PLEA -->
+        <dl id="notGuiltyPlea" class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-0">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Information for magistrates
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['not-guilty-more-detail']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you want a witness on this statement to attend?
+                </dt>
+                <dd id="prosecutionWitnessAttend" class="app-check-your-answers__answer">
+                    {{data['prosecution-witness-attend']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div id="prosecutionWitnessAttendDetail" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter their name and why you want them to attend
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['prosecution-witness-attend-1-detail']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+             <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you want to bring your own witness?
+                </dt>
+                <dd id="defenceWitnessAttend" class="app-check-your-answers__answer">
+                    {{data['defence-witness-attend']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+             <div id="defenceWitnessAttendDetail" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter the name and address of your witness and their age and date of birth if known
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['defence-witness-attend-1-detail']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+             <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Are there any dates you or your witness can not attend court?
+                </dt>
+                <dd id="datesToAvoid" class="app-check-your-answers__answer">
+                    {{data['dates-to-avoid']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+             <div id="datesToAvoidDetail" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Enter the dates you or your witness can not attend court
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['dates-to-avoid-1-detail']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you need an interpreter in court?
+                </dt>
+                <dd id="notGuiltyInterpreter" class="app-check-your-answers__answer">
+                    {{data['not-guilty-interpreter']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            <div id="notGuiltyInterpreterDetail" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Which language?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['not-guilty-interpreter-1-detail']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+            
+            
+            
+            
+            
+            
+        </dl>
+             
         <!-- ************* -->
         <!-- ************* -->
         <!-- ************* -->
         <!-- ************* -->
         <!-- YOUR FINANCES -->
+        
+        <!-- *********** -->
+        <!-- *********** -->
+        <!-- *********** -->
+        <!-- *********** -->
+        <!-- YOUR INCOME -->
         <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question govuk-heading-m">
@@ -346,7 +490,7 @@
                     Income (after tax)
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx paid yyy
+                    £{{data['average-income']}} paid {{data['income-frequency']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -357,7 +501,7 @@
                     National Insurance number
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['nin']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -367,68 +511,93 @@
                 <dt class="app-check-your-answers__question">
                     Your employment status
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                <dd id="employmentStatus" class="app-check-your-answers__answer">
+                    {{data['employment-status']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
-            <div class="app-check-your-answers__contents">
+            <div id="otherIncomeDetails" class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
-                    Are you claiming any benefits?
+                    Other income details
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['other-employment-status-details']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
+            
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Are you claiming any benefits?
+                </dt>
+                <dd id="claimingBenefits" class="app-check-your-answers__answer">
+                    {{data['claiming-benefits']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+            <div id="claimingBenefitsDetail" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Which benefits are you claiming?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['claiming-benefits-details']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+        </dl>
+        
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- ************* -->
+        <!-- YOUR BENEFITS -->
+        <dl id="deductFromBenefits" class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-0">
 
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     If you need to pay a penalty, would you like us to deduct it from your benefits?
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
-                </dd>
-                <dd class="app-check-your-answers__change">
-                </dd>
-            </div>
-
-            <div class="app-check-your-answers__contents">
-                <dt class="app-check-your-answers__question">
-                    Benefits you are claiming
-                </dt>
-                <dd class="app-check-your-answers__answer">
-                    Deductions from earnings
+                    {{data['deduct-from-benefits']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
         </dl>            
-            
-            
-            
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!-- ************* -->
-        <!-- ************* -->
-        <!-- ************* -->
-        <!-- ************* -->
-        <!-- ************* -->
-        <!-- YOUR EMPLOYER -->
-        <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
+        <!-- ************************ -->
+        <!-- ************************ -->
+        <!-- ************************ -->
+        <!-- ************************ -->
+        <!-- DEDUCTIONS FROM EARNINGS -->
+        <dl id="deductFromEarnings" class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-0">
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    If you need to pay a penalty, would you like us to deduct it from your earnings?
+                </dt>
+                <dd id="deductFromEarningsAnswer" class="app-check-your-answers__answer">
+                    {{data['deduct-from-earnings']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+
+        </dl>            
+
+        <!-- *************** -->
+        <!-- *************** -->
+        <!-- *************** -->
+        <!-- *************** -->
+        <!-- YOUR EMPLOYMENT -->
+        <dl id="yourEmployment" class="app-check-your-answers app-check-your-answers--short govuk-!-margin-top-9">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question govuk-heading-m">
                     Your employment
@@ -447,7 +616,7 @@
                     Employee reference
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['employee-reference']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -458,7 +627,7 @@
                     Employer's name
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['employers-name']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -469,11 +638,11 @@
                     Employer's address
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    Address line 1<br />
-                    Address line 2<br />
-                    County<br />
-                    Town or City<br />
-                    Postcode
+                    <span id="employerAddressLine1">{{data['employer-address-line-1']}}<br /></span>
+                    <span id="employerAddressLine2">{{data['employer-address-line-2']}}<br /></span>
+                    <span id="employerAddressCity">{{data['employer-address-town-or-city']}}<br /></span>
+                    <span id="employerAddressCounty">{{data['employer-address-county']}}<br /></span>
+                    <span id="employerAddressPostcode">{{data['employer-address-postcode']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -484,7 +653,7 @@
                     Employer's telephone
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['employer-telephone']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -492,7 +661,6 @@
 
         </dl>
 
- 
         <!-- ************** -->
         <!-- ************** -->
         <!-- ************** -->
@@ -517,19 +685,19 @@
                 <dt class="app-check-your-answers__question">
                     Would you like to give details of your personal bills?
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    xxx
+                <dd id="yourOutgoings" class="app-check-your-answers__answer">
+                    {{data['your-outgoings']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
-            <div class="app-check-your-answers__contents">
+            <div id="yourOutgoingsTotal" class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Monthly amount
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    xxx
+                    {{data['outgoings-total']}}<span id="otherExpensesDetails"> - {{data['other-expenses-details']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -546,7 +714,7 @@
             </div>
         </form>
         
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
         

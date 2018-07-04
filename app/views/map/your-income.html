@@ -30,25 +30,25 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-1" name="income-frequency" type="radio" value="Weekly">
+                                <input class="govuk-radios__input" id="income-frequency-1" name="income-frequency" type="radio" value="Weekly" {{ checked('income-frequency','Weekly') }}>
                                 <label class="govuk-label govuk-radios__label" for="income-frequency-1">
                                     Weekly
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-2" name="income-frequency" type="radio" value="Fortnightly">
+                                <input class="govuk-radios__input" id="income-frequency-2" name="income-frequency" type="radio" value="Fortnightly" {{ checked('income-frequency','Fortnightly') }}>
                                 <label class="govuk-label govuk-radios__label" for="income-frequency-2">
                                     Fortnightly
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-3" name="income-frequency" type="radio" value="Monthly">
+                                <input class="govuk-radios__input" id="income-frequency-3" name="income-frequency" type="radio" value="Monthly" {{ checked('income-frequency','Monthly') }}>
                                 <label class="govuk-label govuk-radios__label" for="income-frequency-3">
                                     Monthly
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-4" name="income-frequency" type="radio" value="Yearly">
+                                <input class="govuk-radios__input" id="income-frequency-4" name="income-frequency" type="radio" value="Yearly" {{ checked('income-frequency','Yearly') }}>
                                 <label class="govuk-label govuk-radios__label" for="income-frequency-4">
                                     Yearly
                                 </label>
@@ -66,10 +66,8 @@
                     </span>
                     <div class="input-icon">
                         <i class="govuk-body">£</i>
-                        <input class="govuk-input govuk-!-width-one-third" id="average-income" name="average-income" type="number" min="0.01" step="0.01" aria-describedby="average-income-hint">
+                        <input class="govuk-input govuk-!-width-one-third" id="average-income" name="average-income" type="number" min="0.01" step="0.01" aria-describedby="average-income-hint" value="{{data['average-income']}}">
                     </div>                
-
-                    
                 </div>                
                 
                 <div class="">
@@ -79,7 +77,7 @@
                     <span id="nin-hint" class="govuk-hint govuk-!-margin-bottom-1">
                         It's on your National Insurance card, benefit letter, payslip or P60 - for example, 'AB 12 34 56 C'
                     </span>
-                    <input class="govuk-input govuk-!-width-one-third" id="nin" name="nin" type="text" aria-describedby="nin-hint">
+                    <input class="govuk-input govuk-!-width-one-third" id="nin" name="nin" type="text" aria-describedby="nin-hint" value="{{data['nin']}}">
                 </div>                
                 
                 <div class="govuk-!-margin-top-6">
@@ -91,25 +89,25 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="employment-status-1" name="employment-status" type="radio" value="Employed (full or part-time)">
+                                <input class="govuk-radios__input" id="employment-status-1" name="employment-status" type="radio" value="Employed (full or part-time)" {{ checked('employment-status','Employed (full or part-time)') }}>
                                 <label class="govuk-label govuk-radios__label" for="employment-status-1">
                                     Employed (full or part-time)
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="employment-status-2" name="employment-status" type="radio" value="Self-employed">
+                                <input class="govuk-radios__input" id="employment-status-2" name="employment-status" type="radio" value="Self-employed" {{ checked('employment-status','Self-employed') }}>
                                 <label class="govuk-label govuk-radios__label" for="employment-status-2">
                                     Self-employed
                                 </label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="employment-status-3" name="employment-status" type="radio" value="Unemployed">
+                                <input class="govuk-radios__input" id="employment-status-3" name="employment-status" type="radio" value="Unemployed" {{ checked('employment-status','Unemployed') }}>
                                 <label class="govuk-label govuk-radios__label" for="employment-status-3">
                                     Unemployed
                                 </label>
                             </div>                            
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="employment-status-4" name="employment-status" type="radio" value="Other (for example, retired, student)" data-aria-controls="employment-status-4-conditional">
+                                <input class="govuk-radios__input" id="employment-status-4" name="employment-status" type="radio" value="Other (for example, retired, student)" data-aria-controls="employment-status-4-conditional" {{ checked('employment-status','Other (for example, retired, student)') }}>
                                 <label class="govuk-label govuk-radios__label" for="income-frequency-4">
                                     Other (for example, retired, student)
                                 </label>
@@ -119,7 +117,7 @@
                                     <label class="govuk-label" for="other-employment-status-details">
                                         Other income details
                                     </label>
-                                    <textarea class="govuk-textarea" id="other-employment-status-details" name="other-employment-status-details" rows="5" aria-describedby="other-employment-status-details-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="other-employment-status-details" name="other-employment-status-details" rows="5" aria-describedby="other-employment-status-details-hint">{{data['other-employment-status-details']}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +133,7 @@
                         </legend>
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="claiming-benefits-1" name="claiming-benefits" type="radio" value="Yes" data-aria-controls="claiming-benefits-1-conditional">
+                                <input class="govuk-radios__input" id="claiming-benefits-1" name="claiming-benefits" type="radio" value="Yes" data-aria-controls="claiming-benefits-1-conditional" {{ checked('claiming-benefits','Yes') }}>
                                 <label class="govuk-label govuk-radios__label" for="claiming-benefits-1">
                                     Yes
                                 </label>
@@ -145,12 +143,12 @@
                                     <label class="govuk-label" for="claiming-benefits-details">
                                         Which benefits are you claiming?
                                     </label>
-                                    <textarea class="govuk-textarea" id="claiming-benefits-details" name="claiming-benefits-details" rows="5" aria-describedby="claiming-benefits-details-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="claiming-benefits-details" name="claiming-benefits-details" rows="5" aria-describedby="claiming-benefits-details-hint">{{data['claiming-benefits-details']}}</textarea>
 
                                 </div>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="claiming-benefits-2" name="claiming-benefits" type="radio" value="No">
+                                <input class="govuk-radios__input" id="claiming-benefits-2" name="claiming-benefits" type="radio" value="No" {{ checked('claiming-benefits','No') }}>
                                 <label class="govuk-label govuk-radios__label" for="claiming-benefits-2">
                                     No
                                 </label>
@@ -158,25 +156,6 @@
                         </div>
                     </fieldset>
                 </div>                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
@@ -186,8 +165,7 @@
             </div>
         </form>
         
-        
-        {% include "includes/welsh.html" %}
+        <!--{% include "includes/welsh.html" %}-->
 
     </div>
     
