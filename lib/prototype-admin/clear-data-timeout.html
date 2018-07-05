@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Clear data
+{% endblock %}
+
+{% block main %}
+
+<script>
+
+    window.onload = function() {
+        //window.location.href = '/map/start-page';
+    }
+    
+</script>
+
+<div class="govuk-width-container">
+
+  <main role="main" class="govuk-main-wrapper">
+
+    <h1 class="govuk-heading-m">
+      Your application has timed out
+    </h1>
+
+    <form action="" method="post">
+        <div class="govuk-form-group">
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </div>
+      </form>
+
+  </main>
+</div>
+
+{% endblock %}

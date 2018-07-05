@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% include "includes/timeout-overlay.html" %}
+
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
@@ -70,8 +72,18 @@
         if (employerAddressPostcode == "") {
             document.getElementById('employerAddressPostcode').style.display = "none";
         }
-    
         
+        /* ****************** */
+        /* CHECK YOUR DETAILS */
+        var homeTelephone = document.getElementById('homeTelephone').innerText;
+        if (homeTelephone == "") {
+            document.getElementById('homeTelephone').innerHTML = "—";
+        }
+        var mobile = document.getElementById('mobile').innerText;
+        if (mobile == "") {
+            document.getElementById('mobile').innerHTML = "—";
+        }
+
         /* **************** */
         /* HOW DO YOU PLEAD */
         var howDoYouPlead = document.getElementById('howDoYouPlead').innerText;
@@ -84,20 +96,27 @@
             
         }
         
-        
         /* *********************** */
         /* CHECK EMPLOYMENT STATUS */
         var employmentStatus = document.getElementById('employmentStatus').innerText;
         if (employmentStatus == "Other (for example, retired, student)") {
             document.getElementById('deductFromEarnings').style.display = "none";
+            document.getElementById('yourEmployment').style.display = "none";
         } else {
             document.getElementById('otherIncomeDetails').style.display = "none";
         }
         if (employmentStatus == "Unemployed") {
             document.getElementById('deductFromEarnings').style.display = "none";
+            document.getElementById('yourEmployment').style.display = "none";
             
         }
         
+        /* ********************************** */
+        /* GUILTY INFORMATION FOR MAGISTRATES */
+        var guiltyMoreDetail = document.getElementById('guiltyMoreDetail').innerText;
+        if (guiltyMoreDetail == "") {
+            document.getElementById('guiltyMoreDetail').innerHTML = "<span style='color:#b10e1e'>You chose not to give the magistates any information</span>";
+        }
         
         /* *********************** */
         /* GUILTY COMING TO COURT? */
@@ -166,7 +185,24 @@
             document.getElementById('otherExpensesDetails').style.display = "none";
         }
         
+        /* ********* */
+        /* CHECK NIN */
+        var nin = document.getElementById('nin').innerText;
+        if (nin == "") {
+            document.getElementById('nin').innerText = "—";
+        }
         
+        /* ************************ */
+        /* CHECK EMPLOYMENT DETAILS */
+        var employeeReference = document.getElementById('employeeReference').innerText;
+        if (employeeReference == "") {
+            document.getElementById('employeeReference').innerText = "—";
+        }
+        var employerTelephone = document.getElementById('employerTelephone').innerText;
+        if (employerTelephone == "") {
+            document.getElementById('employerTelephone').innerText = "—";
+        }
+
     }
     
 </script>
@@ -233,7 +269,7 @@
                 <dt class="app-check-your-answers__question">
                     Home telephone
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="homeTelephone" class="app-check-your-answers__answer">
                     {{data['home-telephone']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -244,7 +280,7 @@
                 <dt class="app-check-your-answers__question">
                     Mobile number
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="mobile" class="app-check-your-answers__answer">
                     {{data['mobile']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -305,7 +341,7 @@
                 <dt class="app-check-your-answers__question">
                     Information for magistrates
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="guiltyMoreDetail" class="app-check-your-answers__answer">
                     {{data['guilty-more-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -500,7 +536,7 @@
                 <dt class="app-check-your-answers__question">
                     National Insurance number
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="nin" class="app-check-your-answers__answer">
                     {{data['nin']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -615,7 +651,7 @@
                 <dt class="app-check-your-answers__question">
                     Employee reference
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="employeeReference" class="app-check-your-answers__answer">
                     {{data['employee-reference']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -652,7 +688,7 @@
                 <dt class="app-check-your-answers__question">
                     Employer's telephone
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd id="employerTelephone" class="app-check-your-answers__answer">
                     {{data['employer-telephone']}}
                 </dd>
                 <dd class="app-check-your-answers__change">

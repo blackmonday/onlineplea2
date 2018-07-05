@@ -8,6 +8,7 @@ $govuk-global-styles: true;
 @import 'patterns/check-your-answers';
 @import 'patterns/related-items';
 @import 'patterns/task-list';
+@import 'patterns/_timeout';
 
 //cookie-banner
 @import "../../../docs/assets/sass/cookie-banner";

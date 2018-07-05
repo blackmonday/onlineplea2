@@ -287,3 +287,9 @@ router.post('/map/give-feedback', function (req, res) {
 router.post('/map/feedback-submitted', function (req, res) {
     res.redirect('/map/start-page')
 });
+
+router.post('/prototype-admin/clear-data-timeout', function (req, res) {
+    req.session.destroy();
+    res.redirect('/map/start-page')
+});
+      

@@ -1,0 +1,16 @@
+<div id="timeoutOverlay" style="display:none">
+    <div id="timeoutOverlay-info" class="govuk-!-padding-bottom-0">
+        <h3 class="govuk-heading-l govuk-!-padding-top-0 govuk-!-padding-bottom-0">Your session will time out soon</h3>
+        <p>We will reset your session if you do not repond in <span id="countDown2" class="govuk-!-font-weight-bold">5</span> <span class="govuk-!-font-weight-bold">seconds</span>. We do this to keep your information secure.</p> 
+        <p id="finalCountdown" class="govuk-!-font-weight-bold" style="display:none">Your are about to be redirected.</p>
+        <input class="govuk-button" type="submit" value="Continue " onclick="timeoutOff()">
+    </div>
+</div>
+
+<div id="timeoutOverlay2" style="display:none">
+    <div id="timeoutOverlay-info-2" class="govuk-!-padding-bottom-0">
+        <h3 class="govuk-heading-l govuk-!-padding-top-0 govuk-!-padding-bottom-0">Your application has timed out</h3>
+        <p>We have reset your application because you did not do anything for <span id="countDown1">1:00</span>. We did this to keep your information secure.</p>        
+        <input class="govuk-button" type="submit" value="Start session again" onclick="timeoutOff2()">
+    </div>
+</div>
