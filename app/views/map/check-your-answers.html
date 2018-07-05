@@ -202,6 +202,43 @@
         if (employerTelephone == "") {
             document.getElementById('employerTelephone').innerText = "—";
         }
+        
+        /* ************* */
+        /* WELSH HEARING */
+        var welshPostcode = document.getElementById('welshPostcode').innerText;
+        if (welshPostcode == "No") {
+            document.getElementById('welshHearingGroup').style.display = "none";
+        }
+        
+        /* ********************** */
+        /* CHECK INCOME FREQUENCY */
+        var incomeFrequency = document.getElementById('incomeFrequency').innerText;
+        if (incomeFrequency == "Weekly") {
+            //document.getElementById('weeklyIncome').style.display = "none"
+            document.getElementById('fortnightlyIncome').style.display = "none"
+            document.getElementById('monthlyIncome').style.display = "none"
+            document.getElementById('yearlyIncome').style.display = "none"
+        } else if (incomeFrequency == "Fortnightly") {
+            document.getElementById('weeklyIncome').style.display = "none"
+            //document.getElementById('fortnightlyIncome').style.display = "none"
+            document.getElementById('monthlyIncome').style.display = "none"
+            document.getElementById('yearlyIncome').style.display = "none"
+        } else if (incomeFrequency == "Monthly") {
+            document.getElementById('weeklyIncome').style.display = "none"
+            document.getElementById('fortnightlyIncome').style.display = "none"
+            //document.getElementById('monthlyIncome').style.display = "none"
+            document.getElementById('yearlyIncome').style.display = "none"
+        } else if (incomeFrequency == "Yearly") {
+            document.getElementById('weeklyIncome').style.display = "none"
+            document.getElementById('fortnightlyIncome').style.display = "none"
+            document.getElementById('monthlyIncome').style.display = "none"
+            //document.getElementById('yearlyIncome').style.display = "none"
+        }
+
+        
+        
+        
+        
 
     }
     
@@ -209,6 +246,10 @@
 
 <div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-full-width">
+        
+        <p id="welshPostcode" style="display:none">{{data['welsh-case']}}</p>
+        <p id="incomeFrequency" style="display:">{{data['income-frequency']}}</p>
+        
         <h1 class="govuk-heading-xl">
             Check your answers
         </h1>
@@ -400,6 +441,17 @@
                 </dd>
             </div>
 
+            <div id="welshHearingGroup" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you wish to speak Welsh at your court hearing?
+                </dt>
+                <dd id="welshHearing" class="app-check-your-answers__answer">
+                    {{data['welsh-hearing']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Do you want a witness on this statement to attend?
@@ -487,12 +539,6 @@
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
-
-            
-            
-            
-            
-            
             
         </dl>
              
@@ -526,7 +572,7 @@
                     Income (after tax)
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    £{{data['average-income']}} paid {{data['income-frequency']}}
+                    £<span id="weeklyIncome">{{data['weekly-income']}}</span><span id="fortnightlyIncome">{{data['fortnightly-income']}}</span><span id="monthlyIncome">{{data['monthly-income']}}</span><span id="yearlyIncome">{{data['yearly-income']}}</span> paid {{data['income-frequency']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>

@@ -23,65 +23,7 @@
         <form action="" method="post">
             <div class="govuk-form-group">
                 
-                <div>
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                            <h1 class="govuk-fieldset__heading">
-                                What is the frequency of your income?
-                            </h1>
-                        </legend>
-                        <div class="govuk-radios" data-module="radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-1" name="income-frequency" type="radio" value="Weekly" {{ checked('income-frequency','Weekly') }}>
-                                <label class="govuk-label govuk-radios__label" for="income-frequency-1">
-                                    Weekly
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-2" name="income-frequency" type="radio" value="Fortnightly" {{ checked('income-frequency','Fortnightly') }}>
-                                <label class="govuk-label govuk-radios__label" for="income-frequency-2">
-                                    Fortnightly
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-3" name="income-frequency" type="radio" value="Monthly" {{ checked('income-frequency','Monthly') }}>
-                                <label class="govuk-label govuk-radios__label" for="income-frequency-3">
-                                    Monthly
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="income-frequency-4" name="income-frequency" type="radio" value="Yearly" {{ checked('income-frequency','Yearly') }}>
-                                <label class="govuk-label govuk-radios__label" for="income-frequency-4">
-                                    Yearly
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>                
-                
-                <div class="">
-                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="average-income">
-                        Your average income (after tax)
-                    </label>
-                    <span id="average-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
-                        Include earnings, pension, benefits and any other income
-                    </span>
-                    <div class="input-icon">
-                        <i class="govuk-body">£</i>
-                        <input class="govuk-input govuk-!-width-one-third" id="average-income" name="average-income" type="number" min="0.01" step="0.01" aria-describedby="average-income-hint" value="{{data['average-income']}}">
-                    </div>                
-                </div>                
-                
-                <div class="">
-                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="nin">
-                        National Insurance number (optional)
-                    </label>
-                    <span id="nin-hint" class="govuk-hint govuk-!-margin-bottom-1">
-                        It's on your National Insurance card, benefit letter, payslip or P60 - for example, 'AB 12 34 56 C'
-                    </span>
-                    <input class="govuk-input govuk-!-width-one-third" id="nin" name="nin" type="text" aria-describedby="nin-hint" value="{{data['nin']}}">
-                </div>                
-                
+                <!-- YOUR EMPLOYMENT STATUS -->
                 <div class="govuk-!-margin-top-6">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -126,6 +68,133 @@
                     </fieldset>
                 </div>                
 
+                <!-- INCOME FREQUENCY -->
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+                        
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                What is the frequency of your income?
+                            </h1>
+                        </legend>
+                        
+                        <div class="govuk-radios" data-module="radios">
+                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-1" name="income-frequency" type="radio" value="Weekly" {{ checked('income-frequency','Weekly') }} data-aria-controls="income-frequency-1-conditional">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-1">
+                                    Weekly
+                                </label>
+                            </div>
+                                        <div class="govuk-radios__conditional" id="income-frequency-1-conditional">
+                                            <label class="govuk-heading-s govuk-!-margin-bottom-0" for="weekly-income">
+                                                Your weekly income (after tax)
+                                            </label>
+                                            <span id="weekly-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                                                Include earnings, pension, benefits and any other income
+                                            </span>
+                                            <div class="input-icon">
+                                                <i class="govuk-body">£</i>
+                                                <input class="govuk-input govuk-!-width-one-third" id="weekly-income" name="weekly-income" type="number" min="0.01" step="0.01" aria-describedby="weekly-income-hint" value="{{data['weekly-income']}}">
+                                            </div>                
+                                        </div>
+                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-2" name="income-frequency" type="radio" value="Fortnightly" {{ checked('income-frequency','Fortnightly') }} data-aria-controls="income-frequency-2-conditional">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-2">
+                                    Fortnightly
+                                </label>
+                            </div>
+                                        <div class="govuk-radios__conditional" id="income-frequency-2-conditional">
+                                            <label class="govuk-heading-s govuk-!-margin-bottom-0" for="fortnightly-income">
+                                                Your fortnightly income (after tax)
+                                            </label>
+                                            <span id="fortnightly-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                                                Include earnings, pension, benefits and any other income
+                                            </span>
+                                            <div class="input-icon">
+                                                <i class="govuk-body">£</i>
+                                                <input class="govuk-input govuk-!-width-one-third" id="fortnightly-income" name="fortnightly-income" type="number" min="0.01" step="0.01" aria-describedby="fortnightly-income-hint" value="{{data['fortnightly-income']}}">
+                                            </div>                
+                                        </div>
+                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-3" name="income-frequency" type="radio" value="Monthly" {{ checked('income-frequency','Monthly') }} data-aria-controls="income-frequency-3-conditional">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-3">
+                                    Monthly
+                                </label>
+                            </div>
+                                        <div class="govuk-radios__conditional" id="income-frequency-3-conditional">
+                                            <label class="govuk-heading-s govuk-!-margin-bottom-0" for="monthly-income">
+                                                Your monthly income (after tax)
+                                            </label>
+                                            <span id="monthly-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                                                Include earnings, pension, benefits and any other income
+                                            </span>
+                                            <div class="input-icon">
+                                                <i class="govuk-body">£</i>
+                                                <input class="govuk-input govuk-!-width-one-third" id="monthly-income" name="monthly-income" type="number" min="0.01" step="0.01" aria-describedby="monthly-income-hint" value="{{data['monthly-income']}}">
+                                            </div>                
+                                        </div>
+                            
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-4" name="income-frequency" type="radio" value="Yearly" {{ checked('income-frequency','Yearly') }} data-aria-controls="income-frequency-4-conditional">
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-4">
+                                    Yearly
+                                </label>
+                            </div>
+                                        <div class="govuk-radios__conditional" id="income-frequency-4-conditional">
+                                            <label class="govuk-heading-s govuk-!-margin-bottom-0" for="yearly-income">
+                                                Your monthly income (after tax)
+                                            </label>
+                                            <span id="yearly-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                                                Include earnings, pension, benefits and any other income
+                                            </span>
+                                            <div class="input-icon">
+                                                <i class="govuk-body">£</i>
+                                                <input class="govuk-input govuk-!-width-one-third" id="yearly-income" name="yearly-income" type="number" min="0.01" step="0.01" aria-describedby="yearly-income-hint" value="{{data['yearly-income']}}">
+                                            </div>                
+                                        </div>
+                        
+                        </div>
+                    </fieldset>
+                </div>   
+                
+                
+                
+                
+                
+                
+                
+                
+                <!-- YOUR AVERAGE INCOME -->
+                <!--
+                <div class="">
+                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="average-income">
+                        Your {{data['income-frequency']}} income (after tax)
+                    </label>
+                    <span id="average-income-hint" class="govuk-hint  govuk-!-margin-bottom-1">
+                        Include earnings, pension, benefits and any other income
+                    </span>
+                    <div class="input-icon">
+                        <i class="govuk-body">£</i>
+                        <input class="govuk-input govuk-!-width-one-third" id="average-income" name="average-income" type="number" min="0.01" step="0.01" aria-describedby="average-income-hint" value="{{data['average-income']}}">
+                    </div>                
+                </div>
+                -->
+                
+                <!-- NIN -->
+                <div class="">
+                    <label class="govuk-heading-s govuk-!-margin-top-6 govuk-!-margin-bottom-0" for="nin">
+                        {{data['nin-label']}}
+                    </label>
+                    <span id="nin-hint" class="govuk-hint govuk-!-margin-bottom-1">
+                        It's on your National Insurance card, benefit letter, payslip or P60 - for example, 'AB 12 34 56 C'
+                    </span>
+                    <input class="govuk-input govuk-!-width-one-third" id="nin" name="nin" type="text" aria-describedby="nin-hint" value="{{data['nin']}}">
+                </div>                
+
+                <!-- ARE YOU CLAIMING ANY BENEFITS -->
                 <div class="govuk-!-margin-top-6">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -174,7 +243,8 @@
     <div class="govuk-grid-column-one-third">
         
         {% include "includes/help-and-advice-header.html" %}
-        {% include "includes/help-and-advice-1.html" %}
+        {% include "includes/help-and-advice-3.html" %}
+        {% include "includes/help-and-advice-4.html" %}
     
     </div>
     

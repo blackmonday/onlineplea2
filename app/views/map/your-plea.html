@@ -21,13 +21,13 @@
         var chargeDetails3 = document.getElementById('chargeDetails3').innerHTML;
         var chargeDetails4 = document.getElementById('chargeDetails4').innerHTML;
         
-        if (chargeDetails1 == "<br>") {
+        if (chargeDetails1 == "<br><br>") {
             document.getElementById('chargeDetails1').style.display = "none";
         }
-        if (chargeDetails2 == "<br>") {
+        if (chargeDetails2 == "<br><br>") {
             document.getElementById('chargeDetails2').style.display = "none";
         }
-        if (chargeDetails3 == "<br>") {
+        if (chargeDetails3 == "<br><br>") {
             document.getElementById('chargeDetails3').style.display = "none";
         }
         if (chargeDetails4 == "") {
@@ -69,9 +69,9 @@
                 </span>
             </summary>
                 <div class="govuk-details__text">
-                    <span id="chargeDetails1">{{data['charge-details-1']}}<br></span>
-                    <span id="chargeDetails2">{{data['charge-details-2']}}<br></span>
-                    <span id="chargeDetails3">{{data['charge-details-3']}}<br></span>
+                    <span id="chargeDetails1">{{data['charge-details-1']}}<br><br></span>
+                    <span id="chargeDetails2">{{data['charge-details-2']}}<br><br></span>
+                    <span id="chargeDetails3">{{data['charge-details-3']}}<br><br></span>
                     <span id="chargeDetails4">{{data['charge-details-4']}}</span>
                 </div>
         </details>
@@ -141,6 +141,8 @@
         
         {% include "includes/help-and-advice-header.html" %}
         {% include "includes/help-and-advice-1.html" %}
+        {% include "includes/help-and-advice-2.html" %}
+        {% include "includes/help-and-advice-3.html" %}
     
     </div>
     

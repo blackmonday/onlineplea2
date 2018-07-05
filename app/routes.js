@@ -13,13 +13,14 @@ module.exports = router
 router.post('/', function (req, res) {
     
     req.session.data['returnToCYA'] = "No"
+    req.session.data['welsh-case'] = "No"
     
     res.redirect('/map/start-page')
     
 });
 
 router.post('/map/start-page', function (req, res) {
-
+    
     req.session.data['defendant-first-name'] = "Sam"
     req.session.data['defendant-last-name'] = "Smith"
     req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -27,7 +28,7 @@ router.post('/map/start-page', function (req, res) {
     req.session.data['defendant-address-city'] = "London"
     req.session.data['defendant-address-county'] = ""
     req.session.data['defendant-address-postcode'] = ""
-    
+
     req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
     req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
     req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
@@ -35,18 +36,13 @@ router.post('/map/start-page', function (req, res) {
     req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
     req.session.data['new-defendant-address-county'] = req.session.data['defendant-address-county']
     req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
-    
+
+    req.session.data['nin-label'] = "National Insurance number (optional)"
     req.session.data['nin'] = ""
-    
+
     req.session.data['dob-day'] = "1"
     req.session.data['dob-month'] = "1"
     req.session.data['dob-year'] = "1981"
-    
-    req.session.data['charge-title'] = "Passenger failing to produce a ticket"
-    req.session.data['charge-details-1'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
-    req.session.data['charge-details-2'] = ""
-    req.session.data['charge-details-3'] = ""
-    req.session.data['charge-details-4'] = ""
 
     res.redirect('/map/find-your-case')
     
@@ -58,6 +54,7 @@ router.post('/map/find-your-case', function (req, res) {
     req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
     
     if (defendantAddressPostcode == "LL48 6ER" || defendantAddressPostcode == "LL486ER") {
+        req.session.data['welsh-case'] = "Yes"
         req.session.data['defendant-address-city'] = "Portmeirion"
         req.session.data['defendant-address-county'] = "Penrhyndeudraeth"
 
@@ -67,10 +64,44 @@ router.post('/map/find-your-case', function (req, res) {
     
     var URN = req.session.data['URN']
     
-    if (URN == "xxx") {
-        // different URN will have data for different prosecutors - DATA TO BE CONFIRMED
-    }
+    /* Transport for London */
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416")) {
+        req.session.data['charge-title'] = "You have 1 charge"
+        req.session.data['charge-details-1'] = "On 19/01/2016 At wandsworth bridge rd SW6 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares did use in relation to the journey you were taking a ticket which had been issued for use by another person on terms that it is not transferable."
+        req.session.data['charge-detail-2'] = "Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
+        req.session.data['charge-details-2'] = ""
+        req.session.data['charge-details-3'] = ""
+        req.session.data['charge-details-4'] = ""
+        
+    /* TV Licensing */
+    } else if ((URN == "TVL") || (URN == "tvl") || (URN == "506123456C")) {
+        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
+        req.session.data['charge-details-1'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
+        req.session.data['charge-details-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
+        req.session.data['charge-details-3'] = "TV subscription package: Not stated"
+        req.session.data['charge-details-4'] = "Occupation:  Not stated"
+        req.session.data['charge-details-5'] = "Contrary to the Communications Act 2003 and Communications (Television Licensing) Regulations 2004."
+        
+        req.session.data['nin-label'] = "National Insurance number"
+        req.session.data['nin'] = "MH 54 55 04 B"
 
+    /* DVLA */
+    } else if ((URN == "DVLA") || (URN == "dvla") || (URN == "29KWN02ZRR")) {
+        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle"
+        req.session.data['charge-details-1'] = "At 12:00 on 21 April 2018, failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02 ZRR on George Street, Croydon. The previous licence expired on 01/01/2018. The annual rate of duty applicable is £250."
+        req.session.data['charge-details-2'] = "Charge Authorised by: Rohan Gye"
+        req.session.data['charge-details-3'] = "Contrary to section 29(1) and (3A) of the Vehicle Excise and Registration Act 1994."
+        req.session.data['charge-details-4'] = ""
+        req.session.data['charge-details-5'] = ""        
+
+    } else {
+        req.session.data['charge-title'] = "Generic charge title"
+        req.session.data['charge-details-1'] = "Generic charge details..."
+        req.session.data['charge-details-2'] = ""
+        req.session.data['charge-details-3'] = ""
+        req.session.data['charge-details-4'] = ""
+    }
+    
     res.redirect('/map/your-details')
     
 });
@@ -159,6 +190,16 @@ router.post('/map/not-guilty-plea-2', function (req, res) {
 });
 
 router.post('/map/not-guilty-plea-3', function (req, res) {
+    
+    if (req.session.data['welsh-case'] == "Yes") {
+        res.redirect('/map/not-guilty-plea-4-welsh')
+    } else {
+        res.redirect('/map/not-guilty-plea-4')
+    }
+    
+});
+
+router.post('/map/not-guilty-plea-4-welsh', function (req, res) {
     res.redirect('/map/not-guilty-plea-4')
 });
 

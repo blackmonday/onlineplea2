@@ -8,6 +8,7 @@
 
 {% include "includes/timeout-overlay.html" %}
 
+
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
@@ -17,39 +18,40 @@
         {% include "includes/cya.html" %}
         
         <h1 class="govuk-heading-xl">
-            Your outgoings
+            Attending court
         </h1>
 
         <form action="" method="post">
             <div class="govuk-form-group">
                 
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                <p>Provide information for magistrates ahead of your court hearing.</p>
+                
+                <div class="govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                             <h1 class="govuk-fieldset__heading">
-                                Would you like to give details of your personal bills?
+                                Do you wish to speak Welsh at your court hearing?
                             </h1>
                         </legend>
-                        <span id="your-outgoings-hint" class="govuk-hint">
-                            Magistrates can take your outgoings into account when deciding how long you should get to pay a penalty
-                        </span>
-                        <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="your-outgoings-1" name="your-outgoings" type="radio" value="Yes" {{ checked('your-outgoings','Yes') }}>
-                                <label class="govuk-label govuk-radios__label" for="your-outgoings-1">
+                                <input class="govuk-radios__input" id="welsh-hearing-1" name="welsh-hearing" type="radio" value="Yes" {{ checked('welsh-hearing','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="welsh-hearing-1">
                                     Yes
                                 </label>
                             </div>
+
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="your-outgoings-2" name="your-outgoings" type="radio" value="No" {{ checked('your-outgoings','No') }}>
-                                <label class="govuk-label govuk-radios__label" for="your-outgoings-2">
+                                <input class="govuk-radios__input" id="welsh-hearing-2" name="welsh-hearing" type="radio" value="No" {{ checked('welsh-hearing','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="welsh-hearing-2">
                                     No
                                 </label>
                             </div>
+
                         </div>
                     </fieldset>
                 </div>                
-                
+
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
@@ -65,8 +67,8 @@
     <div class="govuk-grid-column-one-third">
         
         {% include "includes/help-and-advice-header.html" %}
+        {% include "includes/help-and-advice-2.html" %}
         {% include "includes/help-and-advice-3.html" %}
-        {% include "includes/help-and-advice-4.html" %}
     
     </div>
     
