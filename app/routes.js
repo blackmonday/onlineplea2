@@ -66,6 +66,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     /* Transport for London */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416")) {
+        req.session.data['prosecutor'] = "Transport for London"
         req.session.data['charge-title'] = "You have 1 charge"
         req.session.data['charge-details-1'] = "On 19/01/2016 At wandsworth bridge rd SW6 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares did use in relation to the journey you were taking a ticket which had been issued for use by another person on terms that it is not transferable."
         req.session.data['charge-detail-2'] = "Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
@@ -75,6 +76,7 @@ router.post('/map/find-your-case', function (req, res) {
         
     /* TV Licensing */
     } else if ((URN == "TVL") || (URN == "tvl") || (URN == "506123456C")) {
+        req.session.data['prosecutor'] = "TV Licensing"
         req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
         req.session.data['charge-details-1'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
         req.session.data['charge-details-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
@@ -87,6 +89,7 @@ router.post('/map/find-your-case', function (req, res) {
 
     /* DVLA */
     } else if ((URN == "DVLA") || (URN == "dvla") || (URN == "29KWN02ZRR")) {
+        req.session.data['prosecutor'] = "Driver & Vehicle Licensing Agency"
         req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle"
         req.session.data['charge-details-1'] = "At 12:00 on 21 April 2018, failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02 ZRR on George Street, Croydon. The previous licence expired on 01/01/2018. The annual rate of duty applicable is £250."
         req.session.data['charge-details-2'] = "Charge Authorised by: Rohan Gye"
@@ -95,6 +98,7 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-details-5'] = ""        
 
     } else {
+        req.session.data['prosecutor'] = "prosecutor"
         req.session.data['charge-title'] = "Generic charge title"
         req.session.data['charge-details-1'] = "Generic charge details..."
         req.session.data['charge-details-2'] = ""
