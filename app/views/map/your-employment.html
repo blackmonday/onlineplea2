@@ -42,25 +42,32 @@
 
             <div class="govuk-form-group">
 
+                <p class="govuk-body-l">Tell us about the company you work for.</p>
+
+                <div class=" govuk-!-margin-top-3">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="employers-name">
+                        Which company do you work for? 
+                    </label>
+                    <span id="employers-name-hint" class="govuk-hint">
+                        This is the company name of your employer - this should be on your payslip
+                    </span>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="employers-name" name="employers-name" type="text" aria-describedby="employers-name-hint" value="{{data['employers-name']}}">
+                </div>
+
                 <div class="">
                     <label class="govuk-label govuk-!-font-weight-bold" for="employee-reference">
-                        Employee reference (optional)
+                        What is your employee reference number? (optional)
                     </label>
                     <span id="employee-reference-hint" class="govuk-hint">
-                        Also know as employee number or payroll reference - this should be on your payslip
+                        Also known as employee number or payroll reference - this should be on your payslip
                     </span>
                     <input class="govuk-input govuk-!-width-one-third" id="employee-reference" name="employee-reference" type="text" aria-describedby="employee-reference-hint" value="{{data['employee-reference']}}">
                 </div>                
                 
-                <div class=" govuk-!-margin-top-3">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="employers-name">
-                        Employer's name
-                    </label>
-                    <input class="govuk-input govuk-!-width-two-thirds" id="employers-name" name="employers-name" type="text" aria-describedby="employers-name-hint" value="{{data['employers-name']}}">
-                </div>
+
                 
                 <h2 class="govuk-heading-m govuk-!-margin-top-9">
-                    Employer's Address
+                    What is you employer's Address?
                 </h2>
                 
                 <details class="govuk-details" open>
