@@ -230,7 +230,7 @@ router.post('/map/your-income', function (req, res) {
         res.redirect('/map/your-benefits')
     } else if ((employmentStatus == "Employed (full or part-time)") || (employmentStatus == "Self-employed")) {
         res.redirect('/map/deductions-from-earnings')
-    } else if ((employmentStatus == "Unemployed") || (employmentStatus == "Other (for example, retired, student)")) {
+    } else if ((employmentStatus == "Unemployed") || (employmentStatus == "Other (for example, retired, student)") || (employmentStatus == "I have no income")) {
         res.redirect('/map/your-outgoings')
     }
     
@@ -303,7 +303,7 @@ router.post('/map/your-monthly-outgoings', function (req, res) {
 
     req.session.data['outgoings-total'] = parseFloat(total).toFixed(2)
     
-    if (req.session.data['outgoings-total'] <= 0) {
+    if (req.session.data['outgoings-total'] < 0) {
         req.session.data['outgoings-total'] = "No details given"
     } else {
         req.session.data['outgoings-total'] = "£" + parseFloat(total).toFixed(2)

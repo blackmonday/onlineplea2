@@ -118,11 +118,6 @@
             document.getElementById('guiltyMoreDetail').innerHTML = "<span style='color:#b10e1e'>You chose not to give the magistates any information - if you would like to give this information click <a href='guilty-plea.html' style='color:#b10e1e'>'Change'<span class='govuk-visually-hidden'> your plea</span></a>.</span>";
         }
         
-        
-        
-        
-        
-        
         /* *********************** */
         /* GUILTY COMING TO COURT? */
         var comeToCourt = document.getElementById('comeToCourt').innerText;
@@ -240,11 +235,15 @@
             document.getElementById('monthlyIncome').style.display = "none"
             //document.getElementById('yearlyIncome').style.display = "none"
         }
-
         
         
         
-        
+        /* ********************** */
+        /* INCOME FREQUENCY CHECK */
+        var incomeFrequency = document.getElementById('incomeFrequency').innerText;
+        if (incomeFrequency == "I have no income") {
+            document.getElementById('incomeDetails').style.display = "none";
+        }
 
     }
     
@@ -578,7 +577,7 @@
                     Income (after tax)
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    £<span id="weeklyIncome">{{data['weekly-income']}}</span><span id="fortnightlyIncome">{{data['fortnightly-income']}}</span><span id="monthlyIncome">{{data['monthly-income']}}</span><span id="yearlyIncome">{{data['yearly-income']}}</span> paid {{data['income-frequency']}}
+                    <span id="incomeDetails">£<span id="weeklyIncome">{{data['weekly-income']}}</span><span id="fortnightlyIncome">{{data['fortnightly-income']}}</span><span id="monthlyIncome">{{data['monthly-income']}}</span><span id="yearlyIncome">{{data['yearly-income']}}</span> paid </span><span id="incomeFrequency" style="text-transform: lowercase">{{data['income-frequency']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
@@ -785,7 +784,7 @@
                     Monthly amount
                 </dt>
                 <dd class="app-check-your-answers__answer" style="word-break: break-all">
-                    {{data['outgoings-total']}}<span id="dash"> - including:</span><span id="otherExpensesDetails">{{data['other-expenses-details']}}</span>
+                    <span id="outgoingsTotal">{{data['outgoings-total']}}</span><span id="dash"> - including:</span><span id="otherExpensesDetails">{{data['other-expenses-details']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>

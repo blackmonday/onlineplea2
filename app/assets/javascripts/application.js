@@ -22,6 +22,7 @@ $(document).ready(function () {
     $('#prosecution-witness-character_count').html('');
     $('#defence-witness-character_count').html('');
     $('#dates-to-avoid-1-detail').html('');
+    $('#other-employment-status-details').html('');
     
     /* GUILTY PLEA MITIGATION*/
     $('#guilty-more-detail').keyup(function() {
@@ -76,33 +77,70 @@ $(document).ready(function () {
             $('#not-guilty-more-detail').removeClass('character_count_highlight');
         }
     });
+
+    /* YOUR INCOME - OTHER EMPLOYMENT DETAILS */
+    $('#other-employment-status-details').keyup(function() {
+        var text_length = $('#other-employment-status-details').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#other-employment-status-character_count').css('display','block');
+            $('#other-employment-status-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#other-employment-status-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#other-employment-status-character_count').css('color','#B10E1E');
+        } else if (text_length <= (text_max-text_spread)) {
+            $('#other-employment-status-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#other-employment-status-character_count').addClass('govuk-!-font-weight-bold');
+            $('#other-employment-status-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#other-employment-status-details').addClass('character_count_highlight');
+        } else if (text_length <= text_max) {
+            $('#other-employment-status-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#other-employment-status-details').removeClass('character_count_highlight');
+        }
+    });
     
-    /* YOUR FINANCES - BENEFITS */
+    /* YOUR INCOME - BENEFITS */
     $('#claiming-benefits-details').keyup(function() {
         var text_length = $('#claiming-benefits-details').val().length;
 
         if (text_length > (text_max/2)) {
             $('#benefits-character_count').css('display','block');
             $('#benefits-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
-        } else {
+        } else if (text_length <= (text_max/2)) {
             $('#benefits-character_count').css('display','none');
         }
 
         if (text_length > (text_max-text_spread)) {
             $('#benefits-character_count').css('color','#B10E1E');
-        } else {
+        } else if (text_length <= (text_max-text_spread)) {
             $('#benefits-character_count').css('color','#6F777B');
         }
 
         if (text_length > text_max) {
             $('#benefits-character_count').addClass('govuk-!-font-weight-bold');
             $('#benefits-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
-            $('#claiming-benefits-details').addClass('character_count_highlight');
-        } else {
-            $('#claiming-benefits-details').removeClass('govuk-!-font-weight-bold');
-            $('#benefits-character_count').removeClass('character_count_highlight');
+            $('#claiming-benefits-details').addClass('character_count_highlight_2');
+        } else if (text_length <= text_max) {
+            $('#benefits-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#claiming-benefits-details').removeClass('character_count_highlight_2');
         }
     });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /* OTHER EXPENSES DETAILS */
     $('#other-expenses-details').keyup(function() {

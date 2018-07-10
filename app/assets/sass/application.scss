@@ -143,12 +143,13 @@ img {
 }
 
 /* Character count pattern */
-#not-guilty-character_count, #guilty-character_count, #benefits-character_count, #other-expenses-character_count, #prosecution-witness-character_count, #defence-witness-character_count, #dates-to-avoid-1-character_count {
+#not-guilty-character_count, #guilty-character_count, #other-employment-status-character_count, #benefits-character_count, #other-expenses-character_count, #prosecution-witness-character_count, #defence-witness-character_count, #dates-to-avoid-1-character_count {
     color: #6F777B;
     text-align: right;
     display:none;
+    font-weight: normal;
 }
-.character_count_highlight {
+.character_count_highlight, .character_count_highlight_2 {
     background-color: rgba(177,14,30,.10);
     border-color: #B10E1E;
 }

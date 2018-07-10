@@ -79,7 +79,8 @@
                                     <label class="govuk-label" for="other-employment-status-details">
                                         Other income details
                                     </label>
-                                    <textarea class="govuk-textarea" id="other-employment-status-details" name="other-employment-status-details" rows="5" aria-describedby="other-employment-status-details-hint">{{data['other-employment-status-details']}}</textarea>
+                                    <textarea class="govuk-textarea govuk-!-margin-bottom-2" id="other-employment-status-details" name="other-employment-status-details" rows="5" aria-describedby="other-employment-status-details-hint">{{data['other-employment-status-details']}}</textarea>
+                                    <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="other-employment-status-character_count" style=""></p>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +174,12 @@
                                                 <input class="govuk-input govuk-!-width-one-third" id="yearly-income" name="yearly-income" type="number" min="0.01" step="0.01" aria-describedby="yearly-income-hint" value="{{data['yearly-income']}}">
                                             </div>                
                                         </div>
-                        
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-frequency-5" name="income-frequency" type="radio" value="I have no income" {{ checked('income-frequency','I have no income') }}>
+                                <label class="govuk-label govuk-radios__label" for="income-frequency-5">
+                                    I have no income
+                                </label>
+                            </div>
                         </div>
                     </fieldset>
                 </div>   
