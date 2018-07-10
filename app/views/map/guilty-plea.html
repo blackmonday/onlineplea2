@@ -72,16 +72,17 @@
                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
                 <div>
-                    <label class="govuk-heading-m" for="more-detail">
+                    <label class="govuk-heading-m" for="guilty-more-detail">
                         Is there anything you would like to tell the magistrate? (optional)
                         <!--Information for magistrates (optional)-->
                     </label>
-                    <span id="more-detail-hint" class="govuk-hint">
+                    <span id="guilty-more-detail-hint" class="govuk-hint">
                         <p>This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances.</p>
 
                         <p>They’ll take what you say into account when deciding on the sentence.</p>
                     </span>
-                    <textarea class="govuk-textarea" id="guilty-more-detail" name="guilty-more-detail" rows="10" aria-describedby="guilty-more-detail-hint">{{ data['guilty-more-detail'] }}</textarea>
+                    <textarea class="govuk-textarea govuk-!-margin-bottom-2" id="guilty-more-detail" name="guilty-more-detail" rows="10" aria-describedby="guilty-more-detail-hint">{{ data['guilty-more-detail'] }}</textarea>
+                    <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="character_count" style=""></p>
                 </div>
                 
                 <div class="govuk-!-margin-top-6">

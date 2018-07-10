@@ -141,3 +141,14 @@ img {
 .notification-banner-text a, .notification-banner-text a:hover, .notification-banner-text a:active {
     color: #ffffff;
 }
+
+/* Character count pattern */
+#character_count {
+    color: #6F777B;
+    text-align: right;
+    display:none;
+}
+.character_count_highlight {
+    background-color: rgba(177,14,30,.10);
+    border-color: #B10E1E;
+}
