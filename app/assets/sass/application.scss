@@ -143,7 +143,7 @@ img {
 }
 
 /* Character count pattern */
-#character_count {
+#not-guilty-character_count, #guilty-character_count, #benefits-character_count, #other-expenses-character_count, #prosecution-witness-character_count, #defence-witness-character_count, #dates-to-avoid-1-character_count {
     color: #6F777B;
     text-align: right;
     display:none;

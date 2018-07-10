@@ -290,7 +290,7 @@ router.post('/map/your-monthly-outgoings', function (req, res) {
     }
     
     if (req.session.data['other-expenses-details'] != "") {
-        req.session.data['other-expenses-details'] = 'including: ' + req.session.data['other-expenses-details']
+        req.session.data['other-expenses-details'] = '' + req.session.data['other-expenses-details']
     }
     
     var total = 

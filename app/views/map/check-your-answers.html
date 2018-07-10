@@ -186,8 +186,9 @@
         /* **************************** */
         /* CHECK OTHER EXPENSES DETAILS */
         var otherExpensesDetails = document.getElementById('otherExpensesDetails').innerText;
-        if (otherExpensesDetails == " -") {
+        if (otherExpensesDetails == "") {
             document.getElementById('otherExpensesDetails').style.display = "none";
+            document.getElementById('dash').style.display = "none";
         }
         
         /* ********* */
@@ -253,7 +254,7 @@
     <div class="govuk-grid-column-full-width">
         
         <p id="welshPostcode" style="display:none">{{data['welsh-case']}}</p>
-        <p id="incomeFrequency" style="display:">{{data['income-frequency']}}</p>
+        <p id="incomeFrequency" style="display:none">{{data['income-frequency']}}</p>
         
         <h1 class="govuk-heading-xl">
             Check your answers
@@ -387,7 +388,7 @@
                 <dt class="app-check-your-answers__question">
                     Information for magistrates
                 </dt>
-                <dd id="guiltyMoreDetail" class="app-check-your-answers__answer">
+                <dd id="guiltyMoreDetail" class="app-check-your-answers__answer" style="word-break: break-all">
                     {{data['guilty-more-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -439,7 +440,7 @@
                 <dt class="app-check-your-answers__question">
                     Information for magistrates
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd class="app-check-your-answers__answer" style="word-break: break-all">
                     {{data['not-guilty-more-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -472,7 +473,7 @@
                 <dt class="app-check-your-answers__question">
                     Enter their name and why you want them to attend
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd class="app-check-your-answers__answer"  style="word-break: break-all">
                     {{data['prosecution-witness-attend-1-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -494,7 +495,7 @@
                 <dt class="app-check-your-answers__question">
                     Enter the name and address of your witness and their age and date of birth if known
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd class="app-check-your-answers__answer" style="word-break: break-all">
                     {{data['defence-witness-attend-1-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -516,7 +517,7 @@
                 <dt class="app-check-your-answers__question">
                     Enter the dates you or your witness can not attend court
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd class="app-check-your-answers__answer" style="word-break: break-all">
                     {{data['dates-to-avoid-1-detail']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -631,7 +632,7 @@
                 <dt class="app-check-your-answers__question">
                     Which benefits are you claiming?
                 </dt>
-                <dd class="app-check-your-answers__answer">
+                <dd class="app-check-your-answers__answer" style="word-break: break-all">
                     {{data['claiming-benefits-details']}}
                 </dd>
                 <dd class="app-check-your-answers__change">
@@ -783,8 +784,8 @@
                 <dt class="app-check-your-answers__question">
                     Monthly amount
                 </dt>
-                <dd class="app-check-your-answers__answer">
-                    {{data['outgoings-total']}}<span id="otherExpensesDetails"> - {{data['other-expenses-details']}}</span>
+                <dd class="app-check-your-answers__answer" style="word-break: break-all">
+                    {{data['outgoings-total']}}<span id="dash"> - including:</span><span id="otherExpensesDetails">{{data['other-expenses-details']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>

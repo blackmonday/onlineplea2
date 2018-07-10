@@ -12,35 +12,204 @@ $(document).ready(function () {
     /* *************** */
     /* *************** */
     /* CHARACTER COUNT */
-    var text_max = 50; // This the maximum character count
-    var text_spread = 10; // This calculates when to change the text colour to red
+    var text_max = 140; // This the maximum character count
+    var text_spread = 20; // This calculates when to change the text colour to red
 
-    $('#character_count').html('Character count: 0 /' + text_max);
-
+    $('#guilty-character_count').html('');
+    $('#not-guilty-character_count').html('');
+    $('#benefits-character_count').html('');
+    $('#other-expenses-character_count').html('');
+    $('#prosecution-witness-character_count').html('');
+    $('#defence-witness-character_count').html('');
+    $('#dates-to-avoid-1-detail').html('');
+    
+    /* GUILTY PLEA MITIGATION*/
     $('#guilty-more-detail').keyup(function() {
         var text_length = $('#guilty-more-detail').val().length;
 
         if (text_length > (text_max/2)) {
-            $('#character_count').css('display','block');
-            $('#character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+            $('#guilty-character_count').css('display','block');
+            $('#guilty-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
         } else {
-            $('#character_count').css('display','none');
+            $('#guilty-character_count').css('display','none');
         }
 
         if (text_length > (text_max-text_spread)) {
-            $('#character_count').css('color','#B10E1E');
+            $('#guilty-character_count').css('color','#B10E1E');
         } else {
-            $('#character_count').css('color','#6F777B');
+            $('#guilty-character_count').css('color','#6F777B');
         }
 
         if (text_length > text_max) {
-            $('#character_count').addClass('govuk-!-font-weight-bold');
-            $('#character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#guilty-character_count').addClass('govuk-!-font-weight-bold');
+            $('#guilty-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
             $('#guilty-more-detail').addClass('character_count_highlight');
         } else {
-            $('#character_count').removeClass('govuk-!-font-weight-bold');
+            $('#guilty-character_count').removeClass('govuk-!-font-weight-bold');
             $('#guilty-more-detail').removeClass('character_count_highlight');
         }
     });        
+
+    /* NOT GUILTY PLEA MITIGATION */
+    $('#not-guilty-more-detail').keyup(function() {
+        var text_length = $('#not-guilty-more-detail').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#not-guilty-character_count').css('display','block');
+            $('#not-guilty-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#not-guilty-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#not-guilty-character_count').css('color','#B10E1E');
+        } else {
+            $('#not-guilty-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#not-guilty-character_count').addClass('govuk-!-font-weight-bold');
+            $('#not-guilty-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#not-guilty-more-detail').addClass('character_count_highlight');
+        } else {
+            $('#not-guilty-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#not-guilty-more-detail').removeClass('character_count_highlight');
+        }
+    });
+    
+    /* YOUR FINANCES - BENEFITS */
+    $('#claiming-benefits-details').keyup(function() {
+        var text_length = $('#claiming-benefits-details').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#benefits-character_count').css('display','block');
+            $('#benefits-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#benefits-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#benefits-character_count').css('color','#B10E1E');
+        } else {
+            $('#benefits-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#benefits-character_count').addClass('govuk-!-font-weight-bold');
+            $('#benefits-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#claiming-benefits-details').addClass('character_count_highlight');
+        } else {
+            $('#claiming-benefits-details').removeClass('govuk-!-font-weight-bold');
+            $('#benefits-character_count').removeClass('character_count_highlight');
+        }
+    });
+    
+    /* OTHER EXPENSES DETAILS */
+    $('#other-expenses-details').keyup(function() {
+        var text_length = $('#other-expenses-details').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#other-expenses-character_count').css('display','block');
+            $('#other-expenses-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#other-expenses-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#other-expenses-character_count').css('color','#B10E1E');
+        } else {
+            $('#other-expenses-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#other-expenses-character_count').addClass('govuk-!-font-weight-bold');
+            $('#other-expenses-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#other-expenses-details').addClass('character_count_highlight');
+        } else {
+            $('#other-expenses-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#other-expenses-details').removeClass('character_count_highlight');
+        }
+    });
+    
+    /* PROSECUTION WITNESS DETAILS */
+    $('#prosecution-witness-attend-1-detail').keyup(function() {
+        var text_length = $('#prosecution-witness-attend-1-detail').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#prosecution-witness-character_count').css('display','block');
+            $('#prosecution-witness-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#prosecution-witness-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#prosecution-witness-character_count').css('color','#B10E1E');
+        } else {
+            $('#prosecution-witness-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#prosecution-witness-character_count').addClass('govuk-!-font-weight-bold');
+            $('#prosecution-witness-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#prosecution-witness-attend-1-detail').addClass('character_count_highlight');
+        } else {
+            $('#prosecution-witness-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#prosecution-witness-attend-1-detail').removeClass('character_count_highlight');
+        }
+    });
+    
+    /* DEFENCE WITNESS DETAILS */
+    $('#defence-witness-attend-1-detail').keyup(function() {
+        var text_length = $('#defence-witness-attend-1-detail').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#defence-witness-character_count').css('display','block');
+            $('#defence-witness-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#defence-witness-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#defence-witness-character_count').css('color','#B10E1E');
+        } else {
+            $('#defence-witness-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#defence-witness-character_count').addClass('govuk-!-font-weight-bold');
+            $('#defence-witness-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#defence-witness-attend-1-detail').addClass('character_count_highlight');
+        } else {
+            $('#defence-witness-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#defence-witness-attend-1-detail').removeClass('character_count_highlight');
+        }
+    });
+    
+    /* DEFENCE WITNESS DETAILS */
+    $('#dates-to-avoid-1-detail').keyup(function() {
+        var text_length = $('#dates-to-avoid-1-detail').val().length;
+
+        if (text_length > (text_max/2)) {
+            $('#dates-to-avoid-1-character_count').css('display','block');
+            $('#dates-to-avoid-1-character_count').html('You have ' + (text_max-text_length) + ' characters remaining');
+        } else {
+            $('#dates-to-avoid-1-character_count').css('display','none');
+        }
+
+        if (text_length > (text_max-text_spread)) {
+            $('#dates-to-avoid-1-character_count').css('color','#B10E1E');
+        } else {
+            $('#dates-to-avoid-1-character_count').css('color','#6F777B');
+        }
+
+        if (text_length > text_max) {
+            $('#dates-to-avoid-1-character_count').addClass('govuk-!-font-weight-bold');
+            $('#dates-to-avoid-1-character_count').html('You have ' + (text_max-text_length)*-1 + ' characters too many');
+            $('#dates-to-avoid-1-detail').addClass('character_count_highlight');
+        } else {
+            $('#dates-to-avoid-1-character_count').removeClass('govuk-!-font-weight-bold');
+            $('#dates-to-avoid-1-detail').removeClass('character_count_highlight');
+        }
+    });
 
 })
