@@ -117,6 +117,8 @@ router.post('/map/your-details', function (req, res) {
         res.redirect('/map/your-details-3')
     } else if (areTheseDetailsCorrect == "No") {
         res.redirect('/map/your-details-2')
+    } else {
+        res.redirect('/map/your-details')
     }
 
 });
@@ -143,7 +145,7 @@ router.post('/map/your-details-3', function (req, res) {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
         res.redirect('/map/your-plea')
-    }
+    } 
     
 });
 
@@ -154,6 +156,8 @@ router.post('/map/your-plea', function (req, res) {
         res.redirect('/map/guilty-plea')
     } else if (howDoYouPlead == "Not guilty") {
         res.redirect('/map/not-guilty-plea')
+    } else {
+        res.redirect('/map/your-plea')
     }
 
 });
@@ -171,6 +175,8 @@ router.post('/map/guilty-plea', function (req, res) {
             res.redirect('/map/your-finances')
         }
         
+    } else {
+        res.redirect('/map/guilty-plea')
     }
 
 });
@@ -232,6 +238,8 @@ router.post('/map/your-income', function (req, res) {
         res.redirect('/map/deductions-from-earnings')
     } else if ((employmentStatus == "Unemployed") || (employmentStatus == "Other (for example, retired, student)") || (employmentStatus == "I have no income")) {
         res.redirect('/map/your-outgoings')
+    } else {
+        res.redirect('/map/your-income')
     }
     
 });
@@ -255,6 +263,8 @@ router.post('/map/deductions-from-earnings', function (req, res) {
         res.redirect('/map/your-employment')
     } else if (deductFromEarnings == "No") {
         res.redirect('/map/your-outgoings')
+    } else {
+        res.redirect('/map/deductions-from-earnings')
     }
     
 });
@@ -265,6 +275,8 @@ router.post('/map/your-employment', function (req, res) {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
         res.redirect('/map/your-outgoings')
+    } else {
+        res.redirect('/map/your-employment')
     }
     
 });
@@ -278,6 +290,8 @@ router.post('/map/your-outgoings', function (req, res) {
         res.redirect('/map/your-monthly-outgoings')
     } else if (yourOutgoings == "No") {
         res.redirect('/map/check-your-answers')
+    } else {
+        res.redirect('/map/your-outgoings')
     }
 
 });
