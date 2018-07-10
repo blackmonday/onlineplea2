@@ -219,30 +219,31 @@
             document.getElementById('fortnightlyIncome').style.display = "none"
             document.getElementById('monthlyIncome').style.display = "none"
             document.getElementById('yearlyIncome').style.display = "none"
+            document.getElementById('noIncome').style.textTransform = "lowercase"
         } else if (incomeFrequency == "Fortnightly") {
             document.getElementById('weeklyIncome').style.display = "none"
             //document.getElementById('fortnightlyIncome').style.display = "none"
             document.getElementById('monthlyIncome').style.display = "none"
             document.getElementById('yearlyIncome').style.display = "none"
+            document.getElementById('noIncome').style.textTransform = "lowercase"
         } else if (incomeFrequency == "Monthly") {
             document.getElementById('weeklyIncome').style.display = "none"
             document.getElementById('fortnightlyIncome').style.display = "none"
             //document.getElementById('monthlyIncome').style.display = "none"
             document.getElementById('yearlyIncome').style.display = "none"
+            document.getElementById('noIncome').style.textTransform = "lowercase"
         } else if (incomeFrequency == "Yearly") {
             document.getElementById('weeklyIncome').style.display = "none"
             document.getElementById('fortnightlyIncome').style.display = "none"
             document.getElementById('monthlyIncome').style.display = "none"
             //document.getElementById('yearlyIncome').style.display = "none"
-        }
-        
-        
-        
-        /* ********************** */
-        /* INCOME FREQUENCY CHECK */
-        var incomeFrequency = document.getElementById('incomeFrequency').innerText;
-        if (incomeFrequency == "I have no income") {
-            document.getElementById('incomeDetails').style.display = "none";
+            document.getElementById('noIncome').style.textTransform = "lowercase"
+        } else if (incomeFrequency == "I have no income") {
+            document.getElementById('weeklyIncome').style.display = "none"
+            document.getElementById('fortnightlyIncome').style.display = "none"
+            document.getElementById('monthlyIncome').style.display = "none"
+            document.getElementById('yearlyIncome').style.display = "none"
+            document.getElementById('income').style.display = "none"
         }
 
     }
@@ -577,12 +578,23 @@
                     Income (after tax)
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    <span id="incomeDetails">£<span id="weeklyIncome">{{data['weekly-income']}}</span><span id="fortnightlyIncome">{{data['fortnightly-income']}}</span><span id="monthlyIncome">{{data['monthly-income']}}</span><span id="yearlyIncome">{{data['yearly-income']}}</span> paid </span><span id="incomeFrequency" style="text-transform: lowercase">{{data['income-frequency']}}</span>
+                    <span id="income">£<span id="weeklyIncome">{{data['weekly-income']}}</span><span id="fortnightlyIncome">{{data['fortnightly-income']}}</span><span id="monthlyIncome">{{data['monthly-income']}}</span><span id="yearlyIncome">{{data['yearly-income']}}</span> paid </span><span id="noIncome">{{data['income-frequency']}}</span>
                 </dd>
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     National Insurance number
