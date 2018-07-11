@@ -146,25 +146,38 @@ router.post('/map/your-details-3', function (req, res) {
     
     //res.redirect('/map/your-plea')
     
-    if (req.session.data['email'] == "") {
+    // no contact numbers and no email
+    if (req.session.data['email'] == "" && (req.session.data['home-telephone'] == "" && req.session.data['mobile'] == "")) {
         req.session.data['your-details-3-validation-email-address'] = "error"
-
-        if (req.session.data['home-telephone'] == "" && req.session.data['mobile'] == "") {
-            req.session.data['your-details-3-validation-contact-numbers'] = "error"
-            res.redirect('/map/your-details-3')
-        } else {
-            req.session.data['your-details-3-validation-contact-numbers'] = ""
-        }    
-        
-        res.redirect('/map/your-details-3')
-    }    
+        req.session.data['your-details-3-validation-contact-numbers'] = "error"
+        res.redirect('/map/your-details-3')   
+    }
+    
+    // no contact numbers
+    if (req.session.data['email'] != "" && (req.session.data['home-telephone'] == "" && req.session.data['mobile'] == "")) {
+        req.session.data['your-details-3-validation-email-address'] = ""
+        req.session.data['your-details-3-validation-contact-numbers'] = "error"
+        res.redirect('/map/your-details-3')   
+    }
+    
+    // no email
+    if (req.session.data['email'] == "" && (req.session.data['home-telephone'] != "" || req.session.data['mobile'] != "")) {
+        req.session.data['your-details-3-validation-email-address'] = "error"
+        req.session.data['your-details-3-validation-contact-numbers'] = ""
+        res.redirect('/map/your-details-3')   
+    }
+    
+    // everything is okay
+    if (req.session.data['email'] != "" && (req.session.data['home-telephone'] != "" || req.session.data['mobile'] != "")) {
+        if (req.session.data['returnToCYA'] == "Yes") {
+            res.redirect('check-your-answers')
+        } else if (req.session.data['returnToCYA'] == "No") {
+            res.redirect('/map/your-plea')
+        } 
+    }
     
     
-    if (req.session.data['returnToCYA'] == "Yes") {
-        res.redirect('check-your-answers')
-    } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-plea')
-    } 
+    
     
 });
 

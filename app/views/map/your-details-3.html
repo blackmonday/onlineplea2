@@ -11,6 +11,7 @@
 
         var validationCheck1 = document.getElementById('validationCheck1').innerHTML;
         var validationCheck2 = document.getElementById('validationCheck2').innerHTML;
+        
         if (validationCheck1 == "error") {
             document.getElementById('validation').style.display = "block";
             document.getElementById('contact-numbers').className = "govuk-form-group--error govuk-!-margin-top-9";
@@ -18,6 +19,7 @@
             document.getElementById('1').style.display = "block";
             //alert('contact number error');
         }
+        
         if (validationCheck2 == "error") {
             document.getElementById('validation').style.display = "block";
             document.getElementById('email-address').className = "govuk-form-group--error govuk-!-margin-top-9";
@@ -39,8 +41,8 @@
         
         {% include "includes/cya.html" %}
         
-        <p id="validationCheck1" style="display:">{{data['your-details-3-validation-contact-numbers']}}</p>
-        <p id="validationCheck2" style="display:">{{data['your-details-3-validation-email-address']}}</p>
+        <p id="validationCheck1" style="display:none">{{data['your-details-3-validation-contact-numbers']}}</p>
+        <p id="validationCheck2" style="display:none">{{data['your-details-3-validation-email-address']}}</p>
         
         <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
