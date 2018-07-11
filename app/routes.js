@@ -21,7 +21,10 @@ router.post('/', function (req, res) {
 
 router.post('/map/start-page', function (req, res) {
     
-    req.session.data['validation'] = ""
+    req.session.data['your-details-3-validation-contact-numbers'] = ""
+    req.session.data['your-details-3-validation-email-address'] = ""
+    req.session.data['your-details-3-validation-dob'] = ""
+    req.session.data['declaration-validation'] = ""
     
     req.session.data['defendant-first-name'] = "Sam"
     req.session.data['defendant-last-name'] = "Smith"
@@ -142,6 +145,20 @@ router.post('/map/your-details-2', function (req, res) {
 router.post('/map/your-details-3', function (req, res) {
     
     //res.redirect('/map/your-plea')
+    
+    if (req.session.data['email'] == "") {
+        req.session.data['your-details-3-validation-email-address'] = "error"
+
+        if (req.session.data['home-telephone'] == "" && req.session.data['mobile'] == "") {
+            req.session.data['your-details-3-validation-contact-numbers'] = "error"
+            res.redirect('/map/your-details-3')
+        } else {
+            req.session.data['your-details-3-validation-contact-numbers'] = ""
+        }    
+        
+        res.redirect('/map/your-details-3')
+    }    
+    
     
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
@@ -338,7 +355,7 @@ router.post('/map/declaration', function (req, res) {
     if (req.session.data['confirm'] == "I confirm") {
         res.redirect('/map/confirmation')
     } else {
-        req.session.data['validation'] = "error"
+        req.session.data['declaration-validation'] = "error"
         res.redirect('/map/declaration')
     }
     

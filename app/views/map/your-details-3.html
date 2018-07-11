@@ -6,6 +6,29 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        var validationCheck1 = document.getElementById('validationCheck1').innerHTML;
+        var validationCheck2 = document.getElementById('validationCheck2').innerHTML;
+        if (validationCheck1 == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('contact-numbers').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('contact-number-error').style.display = "block";
+            document.getElementById('1').style.display = "block";
+            //alert('contact number error');
+        }
+        if (validationCheck2 == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('email-address').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('email-error').style.display = "block";
+            document.getElementById('2').style.display = "block";
+            //alert('email error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +39,24 @@
         
         {% include "includes/cya.html" %}
         
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck1" style="display:">{{data['your-details-3-validation-contact-numbers']}}</p>
+        <p id="validationCheck2" style="display:">{{data['your-details-3-validation-email-address']}}</p>
+        
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
-                    <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
+                    <li id="1" style="display:none">
+                        <a href="#contact-number-error">You must enter at least one contact number</a>
                     </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                    <li id="2" style="display:none">
+                        <a href="#email-error">You must enter your email address</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
         
         <h1 class="govuk-heading-xl">
             Enter other details
@@ -41,12 +65,16 @@
         <form action="" method="post">
             <div class="govuk-form-group">
                 
-                <div>
+                <div id="contact-numbers" class="govuk-form-group">
                     <p class="govuk-heading-m govuk-!-margin-bottom-0">
                         Contact numbers
                     </p>
                     <span id="email-hint" class="govuk-hint">
                         The court may need to contact you so they can resolve your case quickly - <span class="govuk-!-font-weight-bold">enter at least one number</span>
+                    </span>
+                    
+                    <span id="contact-number-error" class="govuk-error-message" style="display:none">
+                        You must enter at least one contact number
                     </span>
                     
                     <div>
@@ -64,7 +92,7 @@
                     </div>
                 </div>                
                 
-                <div class="govuk-!-margin-top-9">
+                <div id="email-address" class="govuk-form-group govuk-!-margin-top-9">
                     <div>
                         <label class="govuk-label govuk-!-font-weight-bold" for="email">
                             Email address
@@ -72,14 +100,16 @@
                         <span id="email-hint" class="govuk-hint">
                             We will automatically email you confirmation when the plea is submitted
                         </span>
+                        
+                        <span id="email-error" class="govuk-error-message" style="display:none">
+                            You must enter your email address
+                        </span>
+                    
                         <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text" aria-describedby="email-hint" value="{{ data['email'] }}">
                     </div>
                 </div>
                 
-                
-                
-                
-                <div class="govuk-!-margin-top-9">
+                <div id="dob" class="govuk-form-group govuk-!-margin-top-9">
                     <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s  govuk-!-margin-bottom-0">
                             <h1 class="govuk-fieldset__heading">
@@ -89,6 +119,11 @@
                         <span id="dob-hint" class="govuk-hint govuk-!-margin-top-0">
                             For example, 31 3 1980
                         </span>
+                        
+                        <span id="dob-error" class="govuk-error-message" style="display:none">
+                            You must enter your date of birth
+                        </span>
+                    
                         <div class="govuk-date-input" id="dob">
                             <div class="govuk-date-input__item govuk-date-input__item--day">
                                 <div class="govuk-form-group">
