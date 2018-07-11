@@ -11,14 +11,43 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/breadcrumb.html" %}
 
+<script>
+    window.onload = function() {
+
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('declaration').className = "govuk-form-group--error";
+            document.getElementById('confirmation-error').style.display = "block";
+        }
+        
+    }
+</script>
+
 <div class="govuk-grid-row govuk-!-margin-top-9">
     <div class="govuk-grid-column-two-thirds">
+        
+        <p id="validationCheck" style='display: none'>{{data['validation']}}</p>
+        
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#confirmation-error">You must confirm that you have read and understand the charges against you and that the facts given are correct</a>
+                    </li>
+                </ul>
+            </div>
+        </div>  
+        
         <h1 class="govuk-heading-xl">
             Declaration
         </h1>
 
         <form action="" method="post">
-            <div class="govuk-form-group">
+            <div id="declaration" class="govuk-form-group">
                 
                 <p>I confirm that:</p>
                 <ul class="govuk-list govuk-list--bullet">
@@ -33,7 +62,13 @@
                         <span class="govuk-warning-text__assistive">Warning</span>
                         You may be prosecuted if you make a false statement or deliberately don't declare all relevant facts
                     </strong>
-                </div>                
+                </div> 
+                
+                <p class="govuk-!-margin-bottom-6">If you would like to change any of the information in this plea you can go <a href="javascript:history.go(-1);">'Back'</a> to make the changes.</p>
+                
+                <span id="confirmation-error" class="govuk-error-message" style="display:none">
+                    You must confirm that you have read and understand the charges against you and that the facts given are correct
+                </span>
                 
                 <div class="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
@@ -44,15 +79,6 @@
                     </div>
                 </div>
 
-        
-
-        
-        
-                
-                
-                
-                
-                
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Confirm and submit your plea</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>

@@ -21,6 +21,8 @@ router.post('/', function (req, res) {
 
 router.post('/map/start-page', function (req, res) {
     
+    req.session.data['validation'] = ""
+    
     req.session.data['defendant-first-name'] = "Sam"
     req.session.data['defendant-last-name'] = "Smith"
     req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -332,7 +334,14 @@ router.post('/map/check-your-answers', function (req, res) {
 });
 
 router.post('/map/declaration', function (req, res) {
-    res.redirect('/map/confirmation')
+    
+    if (req.session.data['confirm'] == "I confirm") {
+        res.redirect('/map/confirmation')
+    } else {
+        req.session.data['validation'] = "error"
+        res.redirect('/map/declaration')
+    }
+    
 });
 
 router.post('/map/confirmation', function (req, res) {
