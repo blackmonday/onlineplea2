@@ -33,6 +33,19 @@
         if (chargeDetails4 == "") {
             document.getElementById('chargeDetails4').style.display = "none";
         }
+        
+        
+        
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('your-plea').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
 
     }
 </script>
@@ -42,23 +55,26 @@
         
         {% include "includes/cya.html" %}
         
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['your-plea-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#your-plea">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
+
+        
+        
+        
+        
+        
         
         <h1 class="govuk-heading-xl">
             Your plea
@@ -103,42 +119,51 @@
         <form action="" method="post">
 
             <div class="govuk-form-group govuk-!-margin-bottom-3">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        <h1 class="govuk-fieldset__heading">
-                            How do you pleasd?
-                        </h1>
-                    </legend>
+                <div id="your-plea" class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h1 class="govuk-fieldset__heading">
+                                How do you pleasd?
+                            </h1>
+                        </legend>
 
-                    <div class="govuk-radios" data-module="radios">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-do-you-plead-1" name="how-do-you-plead" type="radio" value="Guilty" data-aria-controls="conditional-how-do-you-plead-1" {{ checked('how-do-you-plead','Guilty') }}>
-                            <label class="govuk-label govuk-radios__label" for="how-do-you-plead-1">
-                                Guilty
-                            </label>
-                        </div>
+                        <span id="validation-error" class="govuk-error-message" style="display:none">
+                            You must select one
+                        </span>
 
-                        <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-1">
-                            <div class="govuk-form-group">
-                                <p>You're declaring you comitted the offence.</p>
+
+
+
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="how-do-you-plead-1" name="how-do-you-plead" type="radio" value="Guilty" data-aria-controls="conditional-how-do-you-plead-1" {{ checked('how-do-you-plead','Guilty') }}>
+                                <label class="govuk-label govuk-radios__label" for="how-do-you-plead-1">
+                                    Guilty
+                                </label>
                             </div>
-                        </div>
 
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-do-you-plead-2" name="how-do-you-plead" type="radio" value="Not guilty" data-aria-controls="conditional-how-do-you-plead-2" {{ checked('how-do-you-plead','Not guilty') }}>
-                            <label class="govuk-label govuk-radios__label" for="how-do-you-plead-2">
-                                Not guilty
-                            </label>
-                        </div>
-
-                        <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-2">
-                            <div class="govuk-form-group">
-                                <p>You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                            <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-1">
+                                <div class="govuk-form-group">
+                                    <p>You're declaring you comitted the offence.</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </fieldset>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="how-do-you-plead-2" name="how-do-you-plead" type="radio" value="Not guilty" data-aria-controls="conditional-how-do-you-plead-2" {{ checked('how-do-you-plead','Not guilty') }}>
+                                <label class="govuk-label govuk-radios__label" for="how-do-you-plead-2">
+                                    Not guilty
+                                </label>
+                            </div>
+
+                            <div class="govuk-radios__conditional" id="conditional-how-do-you-plead-2">
+                                <div class="govuk-form-group">
+                                    <p>You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
             </div>
         
             <div class="govuk-form-group">

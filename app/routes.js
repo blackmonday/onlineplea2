@@ -21,9 +21,16 @@ router.post('/', function (req, res) {
 
 router.post('/map/start-page', function (req, res) {
     
+    req.session.data['your-details-validation'] = ""
     req.session.data['your-details-3-validation-contact-numbers'] = ""
     req.session.data['your-details-3-validation-email-address'] = ""
     req.session.data['your-details-3-validation-dob'] = ""
+    req.session.data['your-plea-validation'] = ""
+    req.session.data['your-court-hearing-validation'] = ""
+    req.session.data['guilty-plea-validation'] = ""
+    req.session.data['not-guilty-plea-validation'] = ""
+    req.session.data['not-guilty-plea-2-validation'] = ""
+    req.session.data['not-guilty-plea-3-validation'] = ""
     req.session.data['declaration-validation'] = ""
     
     req.session.data['defendant-first-name'] = "Sam"
@@ -103,12 +110,15 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-details-5'] = ""        
 
     } else {
+        /*
         req.session.data['prosecutor'] = "prosecutor"
         req.session.data['charge-title'] = "Generic charge title"
         req.session.data['charge-details-1'] = "Generic charge details..."
         req.session.data['charge-details-2'] = ""
         req.session.data['charge-details-3'] = ""
         req.session.data['charge-details-4'] = ""
+        */
+        res.redirect('/map/find-your-case')
     }
     
     res.redirect('/map/your-details')
@@ -123,6 +133,7 @@ router.post('/map/your-details', function (req, res) {
     } else if (areTheseDetailsCorrect == "No") {
         res.redirect('/map/your-details-2')
     } else {
+        req.session.data['your-details-validation'] = "error"
         res.redirect('/map/your-details')
     }
 
@@ -189,6 +200,7 @@ router.post('/map/your-plea', function (req, res) {
     } else if (howDoYouPlead == "Not guilty") {
         res.redirect('/map/not-guilty-plea')
     } else {
+        req.session.data['your-plea-validation'] = "error"
         res.redirect('/map/your-plea')
     }
 
@@ -208,37 +220,69 @@ router.post('/map/guilty-plea', function (req, res) {
         }
         
     } else {
+        req.session.data['guilty-plea-validation'] = "error"
         res.redirect('/map/guilty-plea')
     }
 
 });
 
 router.post('/map/your-court-hearing', function (req, res) {
-
-    if (req.session.data['returnToCYA'] == "Yes") {
-        res.redirect('check-your-answers')
-    } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-finances')
+    
+    var guiltyInterpreter = req.session.data['guilty-interpreter'];
+    if (guiltyInterpreter == "Yes" || guiltyInterpreter == "No") {
+        if (req.session.data['returnToCYA'] == "Yes") {
+            res.redirect('check-your-answers')
+        } else if (req.session.data['returnToCYA'] == "No") {
+            res.redirect('/map/your-finances')
+        }
+    } else {
+        req.session.data['your-court-hearing-validation'] = "error"
+        res.redirect('/map/your-court-hearing')
     }
     
 });
 
 router.post('/map/not-guilty-plea', function (req, res) {
-    res.redirect('/map/not-guilty-plea-2')
+    
+    var notGuiltyMoreDetail = req.session.data['not-guilty-more-detail'];
+    if (notGuiltyMoreDetail == "") {
+        req.session.data['not-guilty-plea-validation'] = "error"
+        res.redirect('/map/not-guilty-plea')
+        
+    } else {
+        res.redirect('/map/not-guilty-plea-2')
+
+    }
+    
 });
 
 router.post('/map/not-guilty-plea-2', function (req, res) {
-    res.redirect('/map/not-guilty-plea-3')
+    
+    var prosecutionWitnessAttend = req.session.data['prosecution-witness-attend'];
+    if (prosecutionWitnessAttend == "Yes" || prosecutionWitnessAttend == "No") {
+        res.redirect('/map/not-guilty-plea-3')
+    } else {
+        req.session.data['not-guilty-plea-2-validation'] = "error"
+        res.redirect('/map/not-guilty-plea-2')
+    }
+
 });
 
 router.post('/map/not-guilty-plea-3', function (req, res) {
     
-    if (req.session.data['welsh-case'] == "Yes") {
-        res.redirect('/map/not-guilty-plea-4-welsh')
+    var defenceWitnessAttend = req.session.data['defence-witness-attend'];
+    if (defenceWitnessAttend == "Yes" || defenceWitnessAttend == "No") {
+        if (req.session.data['welsh-case'] == "Yes") {
+            res.redirect('/map/not-guilty-plea-4-welsh')
+        } else {
+            res.redirect('/map/not-guilty-plea-4')
+        }
+        
     } else {
-        res.redirect('/map/not-guilty-plea-4')
+        req.session.data['not-guilty-plea-3-validation'] = "error"
+        res.redirect('/map/not-guilty-plea-3')
     }
-    
+
 });
 
 router.post('/map/not-guilty-plea-4-welsh', function (req, res) {
@@ -390,4 +434,3 @@ router.post('/prototype-admin/clear-data-timeout', function (req, res) {
     req.session.destroy();
     res.redirect('/map/start-page')
 });
-      

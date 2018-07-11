@@ -6,6 +6,23 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('not-guilty-plea').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +33,25 @@
         
         {% include "includes/cya.html" %}
         
-         <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['not-guilty-plea-2-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#not-guilty-plea">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
+
+        
+        
+        
+        
         
        <h1 class="govuk-heading-xl">
             Prosecution witnesses
@@ -43,13 +62,18 @@
                 
                 <p>Provide information for magistrates ahead of your court hearing.</p>
                                                 
-                <div class="govuk-!-margin-top-6">
+                <div id="not-guilty-plea" class="govuk-form-group govuk-!-margin-top-6">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                             <h1 class="govuk-fieldset__heading">
                                 Do you want a witness on this statement to attend?
                             </h1>
                         </legend>
+                    
+                        <span id="validation-error" class="govuk-error-message" style="display:none">
+                            You must select one
+                        </span>
+                    
                         <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="prosecution-witness-attend-1" name="prosecution-witness-attend" type="radio" value="Yes" data-aria-controls="prosecution-witness-attend-1-conditional">

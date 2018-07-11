@@ -13,6 +13,9 @@
 
 <script>
     window.onload = function() {
+        
+        /* ************* */
+        /* ADDRESS CHECK */
         var defendantAddressLine1 = document.getElementById('defendant-address-line-1').innerHTML;
         var defendantAddressLine2 = document.getElementById('defendant-address-line-2').innerHTML;
         var defendantAddressCity = document.getElementById('defendant-address-city').innerHTML;
@@ -32,6 +35,20 @@
             //alert('WELSH!!!');
         }
         
+        
+        
+        
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('your-details').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+        
     }
 </script>
 
@@ -39,24 +56,21 @@
     <div class="govuk-grid-column-two-thirds">
         
         {% include "includes/cya.html" %}
+        
+        <p id="validationCheck" style="display:none">{{data['your-details-validation']}}</p>
                 
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#your-details">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
         
         <h1 class="govuk-heading-xl">
             Your details
@@ -76,27 +90,34 @@
 
             <div class="govuk-form-group">
 
-                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                        <h1 class="govuk-fieldset__heading">
-                            Are these details correct?
-                        </h1>
-                    </legend>
-                    <div class="govuk-radios govuk-radios--inline">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="are-these-details-correct-1" name="are-these-details-correct" type="radio" value="Yes" {{ checked('are-these-details-correct','Yes') }}>
-                            <label class="govuk-label govuk-radios__label" for="are-these-details-correct-1">
-                                Yes
-                            </label>
+                <div id="your-details" class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h1 class="govuk-fieldset__heading">
+                                Are these details correct?
+                            </h1>
+                        </legend>
+
+                        <span id="validation-error" class="govuk-error-message" style="display:none">
+                            You must select one
+                        </span>
+
+                        <div class="govuk-radios govuk-radios--inline">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="are-these-details-correct-1" name="are-these-details-correct" type="radio" value="Yes" {{ checked('are-these-details-correct','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="are-these-details-correct-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="are-these-details-correct-2" name="are-these-details-correct" type="radio" value="No" {{ checked('are-these-details-correct','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="are-these-details-correct-2">
+                                    No
+                                </label>
+                            </div>
                         </div>
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="are-these-details-correct-2" name="are-these-details-correct" type="radio" value="No" {{ checked('are-these-details-correct','No') }}>
-                            <label class="govuk-label govuk-radios__label" for="are-these-details-correct-2">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
 
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>

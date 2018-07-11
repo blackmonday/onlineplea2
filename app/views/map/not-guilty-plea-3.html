@@ -6,6 +6,23 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('not-guilty-plea').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +33,25 @@
         
         {% include "includes/cya.html" %}
         
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['not-guilty-plea-3-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#not-guilty-plea">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
+
+        
+        
+        
+        
         
         <h1 class="govuk-heading-xl">
             Your witness
@@ -44,41 +63,48 @@
                 <p>Provide information for magistrates ahead of your court hearing.</p>
                                                 
                 <div class="govuk-!-margin-top-6">
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s  govuk-!-margin-bottom-0">
-                            <h1 class="govuk-fieldset__heading">
-                                Do you want to bring your own witness?
-                            </h1>
-                        </legend>
-                        <span id="more-detail-hint govuk-!-margin-top-0" class="govuk-hint">
-                            Someone who can give evidence in court supporting your case
-                        </span>
-                        <div class="govuk-radios" data-module="radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="defence-witness-attend-1" name="defence-witness-attend" type="radio" value="Yes" data-aria-controls="defence-witness-attend-1-conditional" {{ checked('defence-witness-attend','Yes') }}>
-                                <label class="govuk-label govuk-radios__label" for="defence-witness-attend-1">
-                                    Yes
-                                </label>
-                            </div>
-                            <div class="govuk-radios__conditional" id="defence-witness-attend-1-conditional">
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label" for="defence-witness-attend-1-detail">
-                                        Enter the name and address of your witness and their age and date of birth if known
+                    <div id="not-guilty-plea" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s  govuk-!-margin-bottom-0">
+                                <h1 class="govuk-fieldset__heading">
+                                    Do you want to bring your own witness?
+                                </h1>
+                            </legend>
+                            <span id="more-detail-hint govuk-!-margin-top-0" class="govuk-hint">
+                                Someone who can give evidence in court supporting your case
+                            </span>
+
+                            <span id="validation-error" class="govuk-error-message" style="display:none">
+                                You must select one
+                            </span>
+
+                            <div class="govuk-radios" data-module="radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="defence-witness-attend-1" name="defence-witness-attend" type="radio" value="Yes" data-aria-controls="defence-witness-attend-1-conditional" {{ checked('defence-witness-attend','Yes') }}>
+                                    <label class="govuk-label govuk-radios__label" for="defence-witness-attend-1">
+                                        Yes
                                     </label>
-                                    <textarea class="govuk-textarea govuk-!-margin-bottom-2" id="defence-witness-attend-1-detail" name="defence-witness-attend-1-detail" rows="5" aria-describedby="defence-witness-attend-1-detail-hint">{{data['defence-witness-attend-1-detail']}}</textarea>
-                                    <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="defence-witness-character_count" style=""></p>
                                 </div>
-                            </div>
+                                <div class="govuk-radios__conditional" id="defence-witness-attend-1-conditional">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="defence-witness-attend-1-detail">
+                                            Enter the name and address of your witness and their age and date of birth if known
+                                        </label>
+                                        <textarea class="govuk-textarea govuk-!-margin-bottom-2" id="defence-witness-attend-1-detail" name="defence-witness-attend-1-detail" rows="5" aria-describedby="defence-witness-attend-1-detail-hint">{{data['defence-witness-attend-1-detail']}}</textarea>
+                                        <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="defence-witness-character_count" style=""></p>
+                                    </div>
+                                </div>
 
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="defence-witness-attend-2" name="defence-witness-attend" type="radio" value="No" {{ checked('defence-witness-attend','No') }}>
-                                <label class="govuk-label govuk-radios__label" for="defence-witness-attend-2">
-                                    No
-                                </label>
-                            </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="defence-witness-attend-2" name="defence-witness-attend" type="radio" value="No" {{ checked('defence-witness-attend','No') }}>
+                                    <label class="govuk-label govuk-radios__label" for="defence-witness-attend-2">
+                                        No
+                                    </label>
+                                </div>
 
-                        </div>
-                    </fieldset>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>                
                 
                 <div class="govuk-!-margin-top-6">

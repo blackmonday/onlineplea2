@@ -6,6 +6,23 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('not-guilty-plea').className = "govuk-form-group--error govuk-!-margin-top-9";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +33,20 @@
         
         {% include "includes/cya.html" %}
         
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['not-guilty-plea-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#not-guilty-plea">You must tell us why you believe your not guilty</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
         
         <h1 class="govuk-heading-xl">
             Not guilty plea
@@ -42,13 +56,20 @@
             <div class="govuk-form-group">
                 
                 <p>Provide information for magistrates ahead of your court hearing.</p>
-                                
-                <div>
-                    <label class="govuk-heading-m" for="not-guilty-more-detail">
-                        Why do you believe you are not guilty?
-                    </label>
-                    <textarea class="govuk-textarea" id="not-guilty-more-detail" name="not-guilty-more-detail" rows="10" aria-describedby="not-guilty-more-detail-hint">{{data['not-guilty-more-detail']}}</textarea>
-                    <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="not-guilty-character_count" style=""></p>
+                 
+                <div id="not-guilty-plea" class="govuk-form-group">
+                    <div>
+                        <label class="govuk-heading-m" for="not-guilty-more-detail">
+                            Why do you believe you are not guilty?
+                        </label>
+
+                        <span id="validation-error" class="govuk-error-message" style="display:none">
+                            You must tell us why you believe your not guilty
+                        </span>
+
+                        <textarea class="govuk-textarea" id="not-guilty-more-detail" name="not-guilty-more-detail" rows="10" aria-describedby="not-guilty-more-detail-hint">{{data['not-guilty-more-detail']}}</textarea>
+                        <p class="govuk-!-font-size-16 govuk-!-margin-top-2" id="not-guilty-character_count" style=""></p>
+                    </div>
                 </div>
                 
                 <div class="govuk-!-margin-top-6">
