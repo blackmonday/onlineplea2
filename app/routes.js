@@ -31,6 +31,7 @@ router.post('/map/start-page', function (req, res) {
     req.session.data['not-guilty-plea-validation'] = ""
     req.session.data['not-guilty-plea-2-validation'] = ""
     req.session.data['not-guilty-plea-3-validation'] = ""
+    req.session.data['not-guilty-plea-4-welsh-validation'] = ""
     req.session.data['declaration-validation'] = ""
     
     req.session.data['defendant-first-name'] = "Sam"
@@ -286,7 +287,20 @@ router.post('/map/not-guilty-plea-3', function (req, res) {
 });
 
 router.post('/map/not-guilty-plea-4-welsh', function (req, res) {
-    res.redirect('/map/not-guilty-plea-4')
+
+    var welshHearing = req.session.data['welsh-hearing'];
+    if (welshHearing == "Yes" || welshHearing == "No") {
+        res.redirect('/map/not-guilty-plea-4') 
+    } else {
+        req.session.data['not-guilty-plea-4-welsh-validation'] = "error"
+        res.redirect('/map/not-guilty-plea-4-welsh')
+    }
+
+    
+    
+    
+    
+    
 });
 
 router.post('/map/not-guilty-plea-4', function (req, res) {
