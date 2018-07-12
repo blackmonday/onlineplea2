@@ -124,6 +124,7 @@
         if (comeToCourt == "No, I do not want to come to court") {
             document.getElementById('guiltyInterpreter').style.display = "none";
             document.getElementById('guiltyInterpreterLanguage').style.display = "none";
+            document.getElementById('guiltyWelshHearingGroup').style.display = "none";
         }
         
         var guiltyInterpreterAnswer = document.getElementById('guiltyInterpreterAnswer').innerText;
@@ -207,11 +208,12 @@
         /* ************* */
         /* WELSH HEARING */
         var welshPostcode = document.getElementById('welshPostcode').innerText;
+        
         if (welshPostcode == "No") {
             document.getElementById('welshHearingGroup').style.display = "none";
             document.getElementById('guiltyWelshHearingGroup').style.display = "none";
         }
-        
+            
         /* ********************** */
         /* CHECK INCOME FREQUENCY */
         var incomeFrequency = document.getElementById('incomeFrequency').innerText;
@@ -395,11 +397,6 @@
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
-
-            
-            
-            
-            
             
             <div id="guiltyWelshHearingGroup" class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
@@ -411,13 +408,6 @@
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
-            
-            
-            
-            
-            
-            
-            
             
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
@@ -607,17 +597,6 @@
                 <dd class="app-check-your-answers__change">
                 </dd>
             </div>
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
