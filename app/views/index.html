@@ -13,28 +13,67 @@
             <span class="govuk-caption-m">Also know as 'online plea' this design demo uses the GOV.UK prototype kit {{releaseVersion}}</span>
         </h1>{{releaseVersion | log }}
 
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Case or unique reference number</h2>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>Transport for London: <span class="govuk-!-font-weight-bold">21NT5181416</span><br>
-                <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">TFL</span>, <span class="govuk-!-font-weight-bold">TfL</span>, <span class="govuk-!-font-weight-bold">tfl</span> or <span class="govuk-!-font-weight-bold">21NT5181416</span></span></li>
-            <li>TV Licensing: <span class="govuk-!-font-weight-bold">506123456C</span><br>
-                <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">TVL</span> or <span class="govuk-!-font-weight-bold">tvl</span></span></li>
-            <li>Driver and Vehicle Licensing Agency: <span class="govuk-!-font-weight-bold">29KWN02ZRR</span><br>
-                <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">DVLA</span> or <span class="govuk-!-font-weight-bold">dvla</span></span></li>
-        </ul>
+        <!-- URN -->
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Case or unique reference number</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Transport for London: <span class="govuk-!-font-weight-bold">21NT5181416</span><br>
+                    <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">TFL</span>, <span class="govuk-!-font-weight-bold">TfL</span>, <span class="govuk-!-font-weight-bold">tfl</span> or <span class="govuk-!-font-weight-bold">21NT5181416</span></span></li>
+                <li>TV Licensing: <span class="govuk-!-font-weight-bold">506123456C</span><br>
+                    <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">TVL</span> or <span class="govuk-!-font-weight-bold">tvl</span></span></li>
+                <li>Driver and Vehicle Licensing Agency: <span class="govuk-!-font-weight-bold">29KWN02ZRR</span><br>
+                    <span class="govuk-!-font-size-16 govuk-hint">the following will also work - <span class="govuk-!-font-weight-bold">DVLA</span> or <span class="govuk-!-font-weight-bold">dvla</span></span></li>
+            </ul>
+        </div>
         
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Postcodes</h2>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>any postcode can be used</li>
-            <li>to see the Welsh language questions in the guilty and not guilty flows use the following: <span class="govuk-!-font-weight-bold">LL48 6ER</span> or <span class="govuk-!-font-weight-bold">LL486ER</span></li>
-        </ul>
+        <!-- POSTCODES -->
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-9">Postcodes</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>any postcode can be used</li>
+                <li>to see the Welsh language questions in the guilty and not guilty flows use the following: <span class="govuk-!-font-weight-bold">LL48 6ER</span> or <span class="govuk-!-font-weight-bold">LL486ER</span></li>
+            </ul>
+        </div>
         
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Timeout</h2>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>an overlay will be displayed after <span class="govuk-!-font-weight-bold">60 seconds</span> of inactivity</li>
-            <li>session will timeout after <span class="govuk-!-font-weight-bold">90 seconds</span></li>
-            <!--<li style="color: red">timeout times have been temporarily reduced to 5 seconds each for testing purposes</li>-->
-        </ul>
+        <!-- TIMEOUT -->
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-9">Timeout</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>an overlay will be displayed after <span class="govuk-!-font-weight-bold">60 seconds</span> of inactivity</li>
+                <li>session will timeout after <span class="govuk-!-font-weight-bold">90 seconds</span></li>
+                <!--<li style="color: red">timeout times have been temporarily reduced to 5 seconds each for testing purposes</li>-->
+            </ul>
+        </div>
+
+        <!-- VALIDATION -->
+        <div>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-9">Validation</h2>
+            <p class="govuk-!-margin-bottom-3">Form validation errors are visible displayed for the following screens:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li class="govuk-!-font-weight-bold">Your details</li>
+                <li class="govuk-!-font-weight-bold">Enter other details</li>
+                <li class="govuk-!-font-weight-bold">Your plea</li>
+                <li class="govuk-!-font-weight-bold">Guilty plea</li>
+                <li class="govuk-!-font-weight-bold">Guilty plea > Your court hearing > Welsh</li>
+                <li class="govuk-!-font-weight-bold">Guilty plea > Your court hearing > Interpreter</li>
+                <li class="govuk-!-font-weight-bold">Not guilty plea</li>
+                <li class="govuk-!-font-weight-bold">Not guilty plea > Prosecution witness</li>
+                <li class="govuk-!-font-weight-bold">Not guilty plea > Your witness</li>
+                <li class="govuk-!-font-weight-bold">Not guilty plea > Attending court > Welsh</li>
+                <li><span class="govuk-!-font-weight-bold">Your benefits</span></li>
+                <li><span class="govuk-!-font-weight-bold">Deductions from earnings</span></li>
+                <li><span class="govuk-!-font-weight-bold">Your outgoings</span></li>
+            </ul>
+            
+            <p class="govuk-!-margin-bottom-3">There are no displayed validation errors for the following screens:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><span class="govuk-!-font-weight-bold">Find your case</span><br>- you need to enter a valid URN as shown above<br>- any postcode can be used<br>- Use the Welsh postcode shown above to include Welsh questions</li>
+                <li><span class="govuk-!-font-weight-bold">Update your details</span></li>
+                <li><span class="govuk-!-font-weight-bold">Your income</span><br>- this screen must be completed to continue</li>
+                <li><span class="govuk-!-font-weight-bold">Your employment</span></li>
+                <li><span class="govuk-!-font-weight-bold">Your monthly outgoings</span></li>
+            </ul>
+        </div>
 
         <form action="" method="post">
             <div class="govuk-form-group govuk-!-margin-top-9">

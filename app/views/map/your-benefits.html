@@ -6,6 +6,23 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('your-benefits').className = "govuk-form-group--error";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +33,26 @@
         
         {% include "includes/cya.html" %}
         
-        <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['your-benefits-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#your-benefits">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
+
+        
+        
+        
+        
+        
         
         <h1 class="govuk-heading-xl">
             Your benefits
@@ -42,35 +62,42 @@
             <div class="govuk-form-group">
           
                 <div class="govuk-!-margin-top-6">
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                            <h1 class="govuk-fieldset__heading">
-                                If you need to pay a penalty, would you like us to deduct it from your benefits?
-                            </h1>
-                        </legend>
-                        <div class="govuk-radios" data-module="radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-benefits-1" name="deduct-from-benefits" type="radio" value="Yes" {{ checked('deduct-from-benefits','Yes') }}>
-                                <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-1">
-                                    Yes
-                                </label>
+                    <div id="your-benefits" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h1 class="govuk-fieldset__heading">
+                                    If you need to pay a penalty, would you like us to deduct it from your benefits?
+                                </h1>
+                            </legend>
+
+                            <span id="validation-error" class="govuk-error-message" style="display:none">
+                                You must select one
+                            </span>
+
+                            <div class="govuk-radios" data-module="radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="deduct-from-benefits-1" name="deduct-from-benefits" type="radio" value="Yes" {{ checked('deduct-from-benefits','Yes') }}>
+                                    <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-1">
+                                        Yes
+                                    </label>
+                                </div>
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="deduct-from-benefits-2" name="deduct-from-benefits" type="radio" value="No" data-aria-controls="deduct-from-benefits-2-conditional" {{ checked('deduct-from-benefits','No') }}>
+                                    <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-2">
+                                        No
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__conditional" id="deduct-from-benefits-2-conditional">
+                                    <p>Please note we can deduct without your agreement if:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                        <li>you've failed to pay a penalty in the past</li>
+                                        <li>the court orders you to pay compensation</li>
+                                    </ul>
+                                </div>
                             </div>
-                            
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-benefits-2" name="deduct-from-benefits" type="radio" value="No" data-aria-controls="deduct-from-benefits-2-conditional" {{ checked('deduct-from-benefits','No') }}>
-                                <label class="govuk-label govuk-radios__label" for="deduct-from-benefits-2">
-                                    No
-                                </label>
-                            </div>
-                            <div class="govuk-radios__conditional" id="deduct-from-benefits-2-conditional">
-                                <p>Please note we can deduct without your agreement if:</p>
-                                <ul class="govuk-list govuk-list--bullet">
-                                    <li>you've failed to pay a penalty in the past</li>
-                                    <li>the court orders you to pay compensation</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>                
 
                 <div class="govuk-!-margin-top-6">

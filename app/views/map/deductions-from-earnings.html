@@ -6,6 +6,23 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+
+        /* ********** */
+        /* VALIDATION */
+        var validationCheck = document.getElementById('validationCheck').innerHTML;
+        
+        if (validationCheck == "error") {
+            document.getElementById('validation').style.display = "block";
+            document.getElementById('deductions-from-earnings').className = "govuk-form-group--error";
+            document.getElementById('validation-error').style.display = "block";            
+            //alert('contact number error');
+        }
+
+    }
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 {% include "includes/phase-banner.html" %}
@@ -16,23 +33,25 @@
         
         {% include "includes/cya.html" %}
         
-         <!-- FORM VALIDATION - NOT INTERACTIVE
-        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+        <p id="validationCheck" style="display:none">{{data['deductions-from-earnings-validation']}}</p>
+                
+        <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
                 There is a problem
             </h2>
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#dob-error">Date of birth must be in the past</a>
-                    </li>
-                    <li>
-                        <a href="#postcode-error">Enter a postcode, like AA1 1AA</a>
+                        <a href="#deductions-from-earnings">You must select one</a>
                     </li>
                 </ul>
             </div>
         </div>
-        --> 
+
+        
+        
+        
+        
         
        <h1 class="govuk-heading-xl">
             Deductions from earnings
@@ -42,34 +61,41 @@
             <div class="govuk-form-group">
           
                 <div class="govuk-!-margin-top-6">
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-1">
-                                If you need to pay a penalty, would you like us to deduct it from your earnings?
-                            </h1>
-                            <p class="govuk-!-margin-bottom-1">The court may deduct a penalty from your earnings if:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>you've failed to pay in the past</li>
-                                <li>you're ordered to pay compensation, as part of your penalty</li>
-                            </ul>
-                            <p class="govuk-!-margin-bottom-1">For guidance on amount of deduction please visit:</p>
-                            <p><a href="http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made">http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made</a></p>
-                        </legend>
-                        <div class="govuk-radios" data-module="radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-earnings-1" name="deduct-from-earnings" type="radio" value="Yes" {{ checked('deduct-from-earnings','Yes') }}>
-                                <label class="govuk-label govuk-radios__label" for="deduct-from-earnings-1">
-                                    Yes
-                                </label>
+                    <div id="deductions-from-earnings" class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-1">
+                                    If you need to pay a penalty, would you like us to deduct it from your earnings?
+                                </h1>
+                                <p class="govuk-!-margin-bottom-1">The court may deduct a penalty from your earnings if:</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>you've failed to pay in the past</li>
+                                    <li>you're ordered to pay compensation, as part of your penalty</li>
+                                </ul>
+                                <p class="govuk-!-margin-bottom-1">For guidance on amount of deduction please visit:</p>
+                                <p><a href="http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made">http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made</a></p>
+                            </legend>
+
+                            <span id="validation-error" class="govuk-error-message" style="display:none">
+                                You must select one
+                            </span>
+
+                            <div class="govuk-radios" data-module="radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="deduct-from-earnings-1" name="deduct-from-earnings" type="radio" value="Yes" {{ checked('deduct-from-earnings','Yes') }}>
+                                    <label class="govuk-label govuk-radios__label" for="deduct-from-earnings-1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="deduct-from-earnings-2" name="deduct-from-earnings" type="radio" value="No" {{ checked('deduct-from-earnings','No') }}>
+                                    <label class="govuk-label govuk-radios__label" for="deduct-from-earnings-2">
+                                        No
+                                    </label>
+                                </div>
                             </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="deduct-from-earnings-2" name="deduct-from-earnings" type="radio" value="No" {{ checked('deduct-from-earnings','No') }}>
-                                <label class="govuk-label govuk-radios__label" for="deduct-from-earnings-2">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>                
                 
                 <div class="govuk-!-margin-top-6">

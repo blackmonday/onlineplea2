@@ -209,6 +209,7 @@
         var welshPostcode = document.getElementById('welshPostcode').innerText;
         if (welshPostcode == "No") {
             document.getElementById('welshHearingGroup').style.display = "none";
+            document.getElementById('guiltyWelshHearingGroup').style.display = "none";
         }
         
         /* ********************** */
@@ -395,6 +396,29 @@
                 </dd>
             </div>
 
+            
+            
+            
+            
+            
+            <div id="guiltyWelshHearingGroup" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you wish to speak Welsh at your court hearing?
+                </dt>
+                <dd id="guiltyWelshHearing" class="app-check-your-answers__answer">
+                    {{data['guilty-welsh-hearing']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Would you like to come to court?

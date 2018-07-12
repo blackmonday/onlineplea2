@@ -28,10 +28,14 @@ router.post('/map/start-page', function (req, res) {
     req.session.data['your-plea-validation'] = ""
     req.session.data['your-court-hearing-validation'] = ""
     req.session.data['guilty-plea-validation'] = ""
+    req.session.data['your-court-hearing-welsh-validation'] = ""
     req.session.data['not-guilty-plea-validation'] = ""
     req.session.data['not-guilty-plea-2-validation'] = ""
     req.session.data['not-guilty-plea-3-validation'] = ""
     req.session.data['not-guilty-plea-4-welsh-validation'] = ""
+    req.session.data['your-benefits-validation'] = ""
+    req.session.data['deductions-from-earnings-validation'] = ""
+    req.session.data['your-outgoings-validation'] = ""
     req.session.data['declaration-validation'] = ""
     
     req.session.data['defendant-first-name'] = "Sam"
@@ -211,7 +215,14 @@ router.post('/map/guilty-plea', function (req, res) {
 
     var guiltyPleaComeToCourt = req.session.data['guilty-plea-come-to-court'];
     if (guiltyPleaComeToCourt == "Yes, I want to come to court") {
-        res.redirect('/map/your-court-hearing')
+        
+        
+        if (req.session.data['welsh-case'] == "Yes") {
+            res.redirect('/map/your-court-hearing-welsh')
+        } else {
+            res.redirect('/map/your-court-hearing')
+        }
+        
     } else if (guiltyPleaComeToCourt == "No, I do not want to come to court") {
         
         if (req.session.data['returnToCYA'] == "Yes") {
@@ -225,6 +236,18 @@ router.post('/map/guilty-plea', function (req, res) {
         res.redirect('/map/guilty-plea')
     }
 
+});
+
+router.post('/map/your-court-hearing-welsh', function (req, res) {
+    
+    var guiltyWelshHearing = req.session.data['guilty-welsh-hearing'];
+    if (guiltyWelshHearing == "Yes" || guiltyWelshHearing == "No") {
+            res.redirect('/map/your-court-hearing')
+    } else {
+        req.session.data['your-court-hearing-welsh-validation'] = "error"
+        res.redirect('/map/your-court-hearing-welsh')
+    }
+    
 });
 
 router.post('/map/your-court-hearing', function (req, res) {
@@ -336,13 +359,22 @@ router.post('/map/your-income', function (req, res) {
 
 router.post('/map/your-benefits', function (req, res) {
 
-    var employmentStatus = req.session.data['employment-status']
+    var employmentStatus = req.session.data['employment-status']    
+    var deductFromBenefits = req.session.data['deduct-from-benefits'];
     
-    if ((employmentStatus == "Employed (full or part-time)") || (employmentStatus == "Self-employed")) {
-        res.redirect('/map/deductions-from-earnings')
+    if (deductFromBenefits == "Yes" || deductFromBenefits == "No") {
+        if ((employmentStatus == "Employed (full or part-time)") || (employmentStatus == "Self-employed")) {
+            res.redirect('/map/deductions-from-earnings')
+        } else {
+            res.redirect('/map/your-outgoings')
+        }
     } else {
-        res.redirect('/map/your-outgoings')
+        req.session.data['your-benefits-validation'] = "error"
+        res.redirect('/map/your-benefits')
     }
+    
+
+    
     
 });
 
@@ -354,6 +386,7 @@ router.post('/map/deductions-from-earnings', function (req, res) {
     } else if (deductFromEarnings == "No") {
         res.redirect('/map/your-outgoings')
     } else {
+        req.session.data['deductions-from-earnings-validation'] = "error"
         res.redirect('/map/deductions-from-earnings')
     }
     
@@ -374,15 +407,24 @@ router.post('/map/your-employment', function (req, res) {
 router.post('/map/your-outgoings', function (req, res) {
     
     req.session.data['returnToCYA'] = "Yes"
-    
+
     var yourOutgoings = req.session.data['your-outgoings'];
+    
     if (yourOutgoings == "Yes") {
         res.redirect('/map/your-monthly-outgoings')
     } else if (yourOutgoings == "No") {
         res.redirect('/map/check-your-answers')
     } else {
+        req.session.data['your-outgoings-validation'] = "error"
         res.redirect('/map/your-outgoings')
     }
+    
+    
+    
+    
+    
+    
+    
 
 });
 

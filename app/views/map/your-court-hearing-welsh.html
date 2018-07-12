@@ -15,7 +15,7 @@
         
         if (validationCheck == "error") {
             document.getElementById('validation').style.display = "block";
-            document.getElementById('your-outgoings').className = "govuk-form-group--error";
+            document.getElementById('guilty-welsh-hearing').className = "govuk-form-group--error govuk-!-margin-top-9";
             document.getElementById('validation-error').style.display = "block";            
             //alert('contact number error');
         }
@@ -33,7 +33,7 @@
         
         {% include "includes/cya.html" %}
         
-        <p id="validationCheck" style="display:none">{{data['your-outgoings-validation']}}</p>
+        <p id="validationCheck" style="display:">{{data['your-court-hearing-welsh-validation']}}</p>
                 
         <div id="validation" class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" style="display:none">
             <h2 class="govuk-error-summary__title" id="error-summary-title">
@@ -42,7 +42,7 @@
             <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a href="#your-outgoings">You must select one</a>
+                        <a href="#guilty-welsh-hearing">You must select one</a>
                     </li>
                 </ul>
             </div>
@@ -53,47 +53,45 @@
         
         
         
-        
         <h1 class="govuk-heading-xl">
-            Your outgoings
+            Your court hearing
         </h1>
-
+        
         <form action="" method="post">
             <div class="govuk-form-group">
-                
-                <div id="your-outgoings" class="govuk-form-group">
-                    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                                
+                <div id="guilty-welsh-hearing" class="govuk-form-group govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                             <h1 class="govuk-fieldset__heading">
-                                Would you like to give details of your personal bills?
+                                Do you wish to speak Welsh in court?
                             </h1>
                         </legend>
-                        <span id="your-outgoings-hint" class="govuk-hint">
-                            Magistrates can take your outgoings into account when deciding how long you should get to pay a penalty
-                        </span>
                         
                         <span id="validation-error" class="govuk-error-message" style="display:none">
                             You must select one
                         </span>
-                        
-                        <div class="govuk-radios govuk-radios--inline">
+
+                        <div class="govuk-radios" data-module="radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="your-outgoings-1" name="your-outgoings" type="radio" value="Yes" {{ checked('your-outgoings','Yes') }}>
-                                <label class="govuk-label govuk-radios__label" for="your-outgoings-1">
+                                <input class="govuk-radios__input" id="guilty-welsh-hearing-1" name="guilty-welsh-hearing" type="radio" value="Yes" {{ checked('guilty-welsh-hearing','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="guilty-welsh-hearing-1">
                                     Yes
                                 </label>
                             </div>
+
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="your-outgoings-2" name="your-outgoings" type="radio" value="No" {{ checked('your-outgoings','No') }}>
-                                <label class="govuk-label govuk-radios__label" for="your-outgoings-2">
+                                <input class="govuk-radios__input" id="guilty-welsh-hearing-2" name="guilty-welsh-hearing" type="radio" value="No" {{ checked('guilty-welsh-hearing','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="guilty-welsh-hearing-2">
                                     No
                                 </label>
                             </div>
+
                         </div>
                     </fieldset>
                 </div>                
-                
-                <div class="govuk-!-margin-top-6">
+
+                  <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
                 </div>
@@ -109,7 +107,6 @@
         
         {% include "includes/help-and-advice-header.html" %}
         {% include "includes/help-and-advice-3.html" %}
-        {% include "includes/help-and-advice-4.html" %}
     
     </div>
     
