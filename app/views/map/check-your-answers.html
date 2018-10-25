@@ -155,6 +155,55 @@
             document.getElementById('notGuiltyInterpreterDetail').style.display = "none";
         }
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var check_howDoYouPlead = document.getElementById('howDoYouPlead').innerText;
+        var check_comeToCourt = document.getElementById('comeToCourt').innerText;
+        
+        if (((check_howDoYouPlead == "Guilty") && (check_comeToCourt == "Yes, I want to come to court")) || (check_howDoYouPlead == "Not guilty")) {
+            document.getElementById('give-details-of-income').style.display = "bock";
+            document.getElementById('outstanding-fines').style.display = "none";
+        }
+        
+        if ((check_howDoYouPlead == "Guilty") && (check_comeToCourt == "No, I do not want to come to court")) {
+            document.getElementById('give-details-of-income').style.display = "table-row";
+            document.getElementById('outstanding-fines').style.display = "none";
+        }
+        
+            
+
+
+        
+        
+        /* ********************************** */
+        /* DO YOU HAVE ANY OUTSTANDING FINES? */
+        var doYouHaveAnyOutstandingFines = document.getElementById('outstandingFines').innerText;
+        if (doYouHaveAnyOutstandingFines == "") {
+            document.getElementById('outstandingFines').innerHTML = "<span style='color:#b10e1e'>You chose not to answer this question - if you would like to answer this click <a href='your-finances.html' style='color:#b10e1e'>'Change'<span class='govuk-visually-hidden'> your finances</span></a>.</span>";
+        }
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /* ****************** */
         /* CLAIMING BENEFITS? */
         var claimingBenefits = document.getElementById('claimingBenefits').innerText;
@@ -587,6 +636,47 @@
                 </dd>
             </div>
 
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            <div id="give-details-of-income" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Would you like to give us your income or benefits details so they can be taken into account?
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['income-details']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+            <div id="outstanding-fines" class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Do you have any outstanding fines?
+                </dt>
+                <dd id="outstandingFines" class="app-check-your-answers__answer">
+                    {{data['outstanding-fines']}}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                </dd>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
                     Income (after tax)

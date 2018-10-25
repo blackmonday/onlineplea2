@@ -34,6 +34,19 @@
         </div>
         --> 
         
+        
+        
+        
+        
+        
+        <p id="guilty-plea-come-to-court" style="display:; color:red">{{data['guilty-plea-come-to-court']}}</p>
+        
+        
+        
+        
+        
+        
+        
         <h1 class="govuk-heading-xl">
             Your finances
         </h1>
@@ -59,6 +72,97 @@
                 
                 <p>Your financial details will be kept securely and only used by court staff.</p>
                 
+                
+                
+                
+                
+                <!-- ************************************************** -->
+                <!-- NOT GUILTY & GUILTY, I DON'T WANT TO COME TO COURT -->
+                <div id="income-details" style="display:none">
+                    
+                    <hr style="margin: 60px 0 60px 0">
+                                        
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h3 class="govuk-fieldset__heading">
+                                Would you like to give us your income or benefits details so they can be taken into account?
+                            </h3>
+                        </legend>
+
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-details-1" name="income-details" type="radio" value="Yes" data {{ checked('income-details','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="income-details-1">
+                                    Yes
+                                </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-details-2" name="income-details" type="radio" value="No" {{ checked('income-details','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="income-details-2">
+                                    No
+                                </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="income-details-3" name="income-details" type="radio" value="I have no income or benefits" {{ checked('income-details','I have no income or benefits') }}>
+                                <label class="govuk-label govuk-radios__label" for="income-details-3">
+                                    I have no income or benefits
+                                </label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    
+                </div>
+                
+
+                
+                
+                
+                <!-- ******************************* -->
+                <!-- GUILTY, I WANT TO COME TO COURT -->
+                <div id="additional-information" style="display:none">
+                    
+                    <hr style="margin: 60px 0 60px 0">
+                    
+                    <h2 class="govuk-heading-m">Additional information</h2>
+                    
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            <h3 class="govuk-fieldset__heading">
+                                Do you have any outstanding fines? (optional)
+                            </h3>
+                            <p style="margin-top:5px; margin-bottom:0">If you have outstanding fines then the court will consider this information when they deal with your case.</p>
+                        </legend>
+
+                        <div class="govuk-radios" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="outstanding-fines-1" name="outstanding-fines" type="radio" value="Yes" data {{ checked('outstanding-fines','Yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="outstanding-fines-1">
+                                    Yes
+                                </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="outstanding-fines-2" name="outstanding-fines" type="radio" value="No" {{ checked('outstanding-fines','No') }}>
+                                <label class="govuk-label govuk-radios__label" for="outstanding-fines-2">
+                                    No
+                                </label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
                 <div class="govuk-!-margin-top-6">
                     <button type="submit" class="govuk-button govuk-!-margin-bottom-0">Continue</button>
                     <p class="govuk-!-margin-top-3"><a href="javascript:history.go(-1);">Back</a></p>
@@ -80,5 +184,34 @@
     </div>
     
 </div>
+
+
+
+
+
+
+<!-- ********************************************************************** -->
+<!-- display 'Additional information' for "Guilty, I want to come to court" -->
+
+<script>
+    var guiltyPleaComeToCourt = document.getElementById("guilty-plea-come-to-court").innerHTML;
+
+    if (guiltyPleaComeToCourt == "Yes, I want to come to court") {
+        document.getElementById("additional-information").style.display = "block";
+        document.getElementById("income-details").style.display = "none";
+    } else {
+        document.getElementById("additional-information").style.display = "none";
+        document.getElementById("income-details").style.display = "block";
+    }
+
+</script>
+
+
+
+
+
+
+
+
 
 {% endblock %}

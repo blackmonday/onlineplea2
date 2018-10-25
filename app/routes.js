@@ -336,9 +336,44 @@ router.post('/map/not-guilty-plea-4', function (req, res) {
     
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.post('/map/your-finances', function (req, res) {
-    res.redirect('/map/your-income')
+    
+    var incomeDetails = req.session.data['income-details'];
+    var outstandingFines = req.session.data['outstanding-fines'];
+    
+    if ((incomeDetails == "Yes") || (outstandingFines == "Yes") || (outstandingFines == "No")) {
+        res.redirect('/map/your-income')
+    } else {
+        res.redirect('/map/your-outgoings')
+    }
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/map/your-income', function (req, res) {
     
